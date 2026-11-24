@@ -5,7 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Snowy Skips — Skip Bins, Equipment &amp; Labour Hire | Snowy Monaro</title>
 <meta name="description" content="Skip bins, equipment hire and labour hire across the Snowy Monaro. We can load anything for you — every job fully waste tracked. Locally owned in Berridale.">
-<meta name="robots" content="noindex">
 <link rel="icon" href="img/09c01ad123.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
@@ -27,7 +26,6 @@ img{max-width:100%}
 </style>
 </head>
 <body>
-<div class="preview-bar">Preview — not live yet. Prices and bookings are for testing only.</div>
 <header style="border-bottom: 1px solid #e4e0d8; background: #ffffff">
 <div style="max-width: 1240px; margin: 0 auto; padding: 14px 24px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px">
 <a href="#home" style="display: flex; align-items: center; gap: 12px; text-decoration: none" aria-label="Snowy Skips home">
@@ -874,7 +872,7 @@ That extra unload and reload, done for the driver's safety, is what the separati
 <label style="font-weight: 700; color: #52372A">What do you need?<select style="display: block; width: 100%; box-sizing: border-box; margin-top: 4px; padding: 12px; border: 1px solid #cfc8bb; border-radius: 8px; font: inherit"><option>Skip bin</option><option>Skip bin + loading</option><option>Equipment hire</option><option>Labour hire</option><option>Property clean-out (rubbish + cleaning)</option><option>Portable toilet</option><option>Site sheds, containers, fencing or water</option><option>Something else</option></select></label>
 <label style="font-weight: 700; color: #52372A">Job address<input type="text" style="display: block; width: 100%; box-sizing: border-box; margin-top: 4px; padding: 12px; border: 1px solid #cfc8bb; border-radius: 8px; font: inherit"></label>
 <label style="font-weight: 700; color: #52372A">Tell us about the job<textarea rows="4" style="display: block; width: 100%; box-sizing: border-box; margin-top: 4px; padding: 12px; border: 1px solid #cfc8bb; border-radius: 8px; font: inherit"></textarea></label>
-<label style="font-weight: 700; color: #52372A">Photos of what's going (helps us quote)<input type="file" multiple accept="image/*" style="display: block; margin-top: 6px; font: inherit"></label>
+<p style="font-weight: 700; color: #52372A">Photos help us quote: when your email opens, attach a few clear photos of what is going before you press send.</p>
 <button type="button" style="background: #4F7230; color: #ffffff; font: inherit; font-weight: 700; padding: 14px 22px; border: none; border-radius: 8px; cursor: pointer; justify-self: start">Send</button>
 </form>
 </div>
@@ -1000,7 +998,7 @@ That extra unload and reload, done for the driver's safety, is what the separati
   show(location.hash);
   document.querySelectorAll('form').forEach(function(f){
     var b=f.querySelector('button'); if(!b) return;
-    b.addEventListener('click',function(){ b.textContent='Thanks — this is a preview, so nothing was sent yet.'; b.disabled=true; });
+    b.addEventListener('click',function(){ var NL=String.fromCharCode(10); var v=[].slice.call(f.querySelectorAll('input:not([type=file]),select,textarea')).map(function(e){ var l=e.closest('label'); return (l?l.firstChild.textContent.trim():'')+': '+e.value; }); var nm=f.querySelector('input[type=text]'); var sub='Quote request'+(nm&&nm.value?' - '+nm.value:''); location.href='mailto:bookings@snowyskips.com.au?subject='+encodeURIComponent(sub)+'&body='+encodeURIComponent(v.join(NL)+NL+NL+'(Attach photos of what is going here.)'); b.textContent='Your email app should open with the details - attach photos and press send.'; });
   });
 })();
 </script>
