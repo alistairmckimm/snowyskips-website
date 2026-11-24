@@ -1,0 +1,204 @@
+"""Split the single-page live build into one real page per section, add /faq/, rewrite links, write sitemap.
+Run after: LIVE=1 build_site.py ; gen_towns.py"""
+import re, json, os, glob, html as H_
+OUT = '/home/claude/website-live/'
+SITE = 'https://snowyskips.com.au'
+d = open(OUT + 'index.html').read()
+
+head = d[:d.index('<body>')]
+header = d[d.index('<header'):d.index('</header>') + 9]
+footer = d[d.index('<footer'):d.index('</footer>') + 9]
+mains = dict(re.findall(r'<main class="page" data-page="([^"]+)" id="page-[^"]+">\n(.*?)\n</main>', d, re.S))
+forms_js = re.search(r"  document\.querySelectorAll\('form'\)\.forEach\(.*?\n  \}\);\n", d, re.S).group(0)
+PAGES = list(mains)  # home, skip-bins, pricing, ...
+
+# FAQ link in the Customer Guide menu
+header = header.replace('Snowy Skips Skip Bin Guide</a>',
+    'Snowy Skips Skip Bin Guide</a><a href="#faq" style="display: block; padding: 8px 16px; color: #1f1f1f; text-decoration: none">Skip bin FAQs</a><a href="#skip-bin-permits" style="display: block; padding: 8px 16px; color: #1f1f1f; text-decoration: none">Council permits for skip bins</a>', 1)
+footer = footer.replace('<a href="#landfill-costs" style="color: #e8e2d9">Landfill Costs</a>',
+    '<a href="#landfill-costs" style="color: #e8e2d9">Landfill Costs</a><br><a href="#faq" style="color: #e8e2d9">FAQs</a>', 1)
+
+# ---------- FAQ ----------
+FAQ = [
+ ("What size skip bins do you have?",
+  "We run bins from 1.5 m³ right through to 12 m³. Our most popular sizes are the 2 m³ mini skip, the 5 m³ renovation skip and the 8 m³ builder's skip. For big jobs our crew can hand load straight into our semi tipper trailer, over 20 m³ in one go. Not sure which size? Send us a photo of what's going and we'll tell you.",
+  'See <a href="/skip-bins/">skip bin sizes</a>.'),
+ ("How much does a skip bin cost?",
+  "Prices start from $330 inc GST for a 2 m³ bin in Cooma, for up to 7 days' hire, plus landfill at cost. Berridale, Jindabyne and other areas cost a little more depending on the distance. Prices on the website are a guide only. If our trucks are already working in your area and you can be flexible on times, we can often give you a sharper quote.",
+  'See <a href="/pricing/">prices for your area</a>.'),
+ ("How is the landfill fee worked out?",
+  "Landfill is charged on top of the bin hire, at cost, at the council's current rates. Every load is weighed on the landfill weighbridge and you get the docket. As a rough guide, a 2 m³ household clean-out we weighed at 0.24 t cost about $65 to tip, and a 5 m³ load of timber and building waste at 1.4 t cost about $450.",
+  'See <a href="/landfill-costs/">real loads and what they cost</a>.'),
+ ("How long can I keep the bin?",
+  "Prices cover up to 7 days. After that it's $15 a day for a 2 m³ bin, $20 a day for a 5 m³ bin and $25 a day for an 8 m³ bin. Building sites can ask about a permanent bin on a site account.", ''),
+ ("How quickly can you deliver a skip bin?",
+  "We can generally deliver and pick up within 24 hours' notice, but ideally book well ahead so your project runs smoothly. ASAP and emergency jobs may cost extra.", ''),
+ ("What is a 24-hour hotshot?",
+  "A quick turnaround: we drop the bin off and pick it up the next day. Hotshot prices are generally 10% less than standard hire, and up to 15% less if our trucks are already nearby. Hotshot discounts don't apply below our minimum charge.", ''),
+ ("What can go in a skip bin?",
+  "General household rubbish, building, renovation and demolition waste, timber, plasterboard, carpet, underlay, synthetic turf, furniture, and green waste and garden prunings. Concrete, bricks and rubble can go in too, but they're heavy, so don't overfill. Green waste, concrete and clean scrap steel are much cheaper to tip on their own, so ask us about a separate bin.",
+  'Read the <a href="/skip-bin-guide/">Skip Bin Guide</a>.'),
+ ("What can't go in a skip bin?",
+  "Never put asbestos, liquids or sludge, food waste, medical waste and sharps, or animal carcasses in a skip bin. Contact us and we can guide you in the right direction to have these correctly and lawfully serviced.", ''),
+ ("Can I put a mattress, fridge or tyres in the bin?",
+  "Ask us first. Fridges, freezers, air-conditioners, mattresses, tyres, batteries, paint, gas bottles, chemicals, TVs and electronics go to their own area at the landfill. Place them on top of the load so they can be separated. A separation fee of $49.50 inc GST and the item's own council fee apply.",
+  'See <a href="/pricing/#extra-charges">extra charges</a>.'),
+ ("Do I need a council permit for a skip bin?",
+  "On your own property (driveway, yard or building site) you generally don't need one. If the bin has to go on the road, nature strip or footpath, you need Snowy Monaro Regional Council's approval under Section 138 of the Roads Act first. We can handle the application for you: we hold $20 million public liability insurance and have the safe work method statements, and an accredited traffic control company prepares the traffic plan. Allow time for council to approve it.",
+  'Read <a href="/skip-bin-permits/">council permits for skip bins</a>.'),
+ ("How full can I fill the bin?",
+  "Level with the top or below. Nothing over the sides or sticking up, because an overloaded bin can't be carried safely or legally until it's levelled off. Soil, concrete, bricks and rock are extremely heavy, so a bin can be over the legal weight long before it's full. Ask us to put a mark inside your bin showing how high you can fill it.",
+  'See <a href="/skip-bins/#loading-tips">loading tips</a>.'),
+ ("Can you load the bin for me?",
+  "Yes. You don't have to load a bin at all. Our crew and machines can come to your site, load it, separate it and take it right through to the landfill. Send us a few clear photos of everything that's going and we can generally quote the whole job, bin and loading together.",
+  'See <a href="/labour-hire/">labour hire and clean-outs</a>.'),
+ ("What areas do you service?",
+  "We're based in Berridale and service the whole Snowy Monaro: Cooma, Polo Flat, Berridale, Jindabyne, East Jindabyne, Kalkite, Dalgety, Crackenback, Adaminaby, Bredbo, Numeralla, Nimmitabel, Bombala, Delegate, Michelago and more. Thredbo, Perisher, Charlotte Pass and the alpine resorts are by quote, because access can be difficult.",
+  'See <a href="/pricing/">service areas and zones</a>.'),
+ ("Can you take soil, fill or VENM?",
+  "Yes. Under NSW law excavated soil is classed as waste, even when it's clean. We cart and dispose of virgin excavated natural material (VENM) in our skip bins and trucks with the right paperwork and full tracking. Soil generally needs to be tested before it's moved, and it must be kept clean and never mixed with other waste.",
+  'See <a href="/skip-bins/#soil-venm">how we handle soil and VENM</a>.'),
+ ("Do you price match?",
+  "Yes. Send us a genuine written quote or published price from a local operator servicing the Snowy Monaro, dated within the last 7 days, for the same job, before you book, and we'll match it.",
+  'See <a href="/pricing/#price-match">how our price match works</a>.'),
+ ("What happens to my waste?",
+  "Every bin we run is documented from order to landfill. Your load is weighed, tipped at a landfill or recycling centre that can lawfully accept it, and you get a docket with the weight, tip receipt and photos.", ''),
+]
+HS = "font-family: 'Sora', sans-serif; font-weight: 800; color: #52372A"
+faq_items = ''.join(f'''<details style="border-bottom: 1px solid #e4e0d8; padding: 18px 0">
+<summary style="cursor: pointer; font-family: 'Sora', sans-serif; font-weight: 700; font-size: 20px; color: #52372A">{H_.escape(q)}</summary>
+<p style="margin: 10px 0 0 0">{H_.escape(a)}{(' ' + more) if more else ''}</p>
+</details>
+''' for q, a, more in FAQ)
+mains['faq'] = f'''<section style="background: #F5F2EC">
+<div style="max-width: 900px; margin: 0 auto; padding: 56px 24px">
+<div style="font-weight: 700; letter-spacing: 2px; font-size: 14px; color: #4F7230">FREQUENTLY ASKED QUESTIONS</div>
+<h1 style="{HS}; font-size: 44px; line-height: 1.1; margin: 10px 0 0 0">Skip bin questions, answered</h1>
+<p style="margin: 14px 0 0 0; font-size: 20px">Sizes, prices, landfill, permits and what can go in. Can't see your question? Call us on <a href="tel:0408632007" style="font-weight: 700">0408 632 007</a>.</p>
+</div>
+</section>
+<section style="max-width: 900px; margin: 0 auto; padding: 16px 24px 56px 24px">
+{faq_items}
+<div style="display: flex; flex-wrap: wrap; gap: 12px; margin-top: 32px"><a href="tel:0408632007" style="background: #4F7230; color: #fff; text-decoration: none; font-weight: 700; padding: 14px 22px; border-radius: 8px">Call 0408 632 007</a><a href="#contact" style="background: #fff; color: #52372A; text-decoration: none; font-weight: 700; padding: 12px 20px; border-radius: 8px; border: 2px solid #52372A">Get a quote</a></div>
+</section>'''
+faq_ld = {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [
+    {"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a, _ in FAQ]}
+PAGES.append('faq')
+
+# ---------- Permit article ----------
+P = "margin: 14px 0 0 0; font-size: 18px; line-height: 1.6"
+H2 = HS + "; font-size: 28px; margin: 36px 0 0 0"
+mains['skip-bin-permits'] = f'''<section style="background: #F5F2EC">
+<div style="max-width: 860px; margin: 0 auto; padding: 56px 24px">
+<div style="font-weight: 700; letter-spacing: 2px; font-size: 14px; color: #4F7230">SKIP BIN GUIDE</div>
+<h1 style="{HS}; font-size: 42px; line-height: 1.1; margin: 10px 0 0 0">Do I need a council permit for a skip bin in the Snowy Monaro?</h1>
+<p style="margin: 16px 0 0 0; font-size: 20px"><strong>The short answer:</strong> if the bin goes on your own property (your driveway, yard or building site), you generally don't need a permit. If it has to go on the road, nature strip or footpath, you need Snowy Monaro Regional Council's approval first, and we can look after that for you.</p>
+</div>
+</section>
+<section style="max-width: 860px; margin: 0 auto; padding: 8px 24px 56px 24px">
+<h2 style="{H2}">On your own property</h2>
+<p style="{P}">Most of our bins go on driveways. We need firm, level ground, clear access for the truck and no low wires overhead. If the bin or truck has to go over grass or a finished surface, tell us when you book and we'll work out the best spot with you. Our <a href="/skip-bins/">2 m³ mini skip</a> suits tight driveways and town blocks.</p>
+<h2 style="{H2}">On the road, nature strip or footpath</h2>
+<p style="{P}">The road reserve (the road, kerb, nature strip and footpath) is controlled by council. Under Section 138 of the NSW Roads Act, any activity in the road reserve needs council's consent before it happens, and Snowy Monaro Regional Council lists skip bins among the activities that need a road management approval.</p>
+<p style="{P}">The application is lodged through the NSW Planning Portal. Council asks for:</p>
+<ul style="margin: 10px 0 0 0; padding-left: 22px; font-size: 18px; line-height: 1.7">
+<li>public liability insurance of at least $20 million, in the applicant's name, with council noted as an interested party</li>
+<li>a traffic control plan prepared by an accredited person</li>
+<li>a safe work method statement and details of the work</li>
+<li>council's application fee, as set in its Fees and Charges</li>
+</ul>
+<h2 style="{H2}">We can do the paperwork for you</h2>
+<p style="{P}">Snowy Skips holds $20 million public liability and professional indemnity insurance, and we already have the safe work method statements. Our traffic control plans are prepared by an accredited traffic control company in Jindabyne, usually within about 2 days. So we can apply for the permit on your behalf and look after the whole job, from the application to delivery, pickup and disposal.</p>
+<p style="{P}">The approval itself depends on council's processing time, so let us know as early as you can. Where it makes sense, we'll still look for a spot on your property first, because it's quicker and cheaper for you.</p>
+<h2 style="{H2}">Not sure where your bin can go?</h2>
+<p style="{P}">Send us a photo of the spot, or call us on <a href="tel:0408632007" style="font-weight: 700">0408 632 007</a>, and we'll tell you whether it needs a permit.</p>
+<p style="margin: 24px 0 0 0; font-size: 15px; color: #555">This is general information, not legal advice. Council's requirements can change; check with <a href="https://www.snowymonaro.nsw.gov.au/Building-and-Planning/Development-Engineering/Works-Within-the-Road-Road-Management-Approvals-s138" rel="noopener">Snowy Monaro Regional Council</a> for the current rules.</p>
+<div style="display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px"><a href="tel:0408632007" style="background: #4F7230; color: #fff; text-decoration: none; font-weight: 700; padding: 14px 22px; border-radius: 8px">Call 0408 632 007</a><a href="#contact" style="background: #fff; color: #52372A; text-decoration: none; font-weight: 700; padding: 12px 20px; border-radius: 8px; border: 2px solid #52372A">Get a quote</a><a href="#faq" style="color: #4F7230; font-weight: 700; padding: 14px 6px">More skip bin FAQs</a></div>
+</section>'''
+PAGES.append('skip-bin-permits')
+
+META = {
+ 'home': (None, None),
+ 'skip-bins': ('Skip Bin Hire Snowy Monaro | 1.5 to 12 m³ Bins | Snowy Skips',
+   'Skip bin hire across the Snowy Monaro, from 1.5 m³ to 12 m³, plus a 20 m³+ semi tipper. Fill it yourself or we load it for you. Delivered within 24 hours\' notice from Berridale.'),
+ 'pricing': ('Skip Bin Prices Cooma, Jindabyne, Berridale & Snowy Monaro | Snowy Skips',
+   'Indicative skip bin prices by area: Cooma from $330, Berridale and Jindabyne from $440 inc GST for up to 7 days, plus landfill at cost. 24-hour hotshot prices, extra charges and price match.'),
+ 'landfill-costs': ('Landfill Costs for Skip Bins | Real Loads Weighed | Snowy Skips',
+   'What does it cost to tip a skip bin in the Snowy Monaro? Real Snowy Skips loads weighed on the landfill weighbridge, with what each one cost at council rates.'),
+ 'equipment-hire': ('Equipment Hire & Site Establishment Snowy Monaro | Snowy Skips',
+   'Equipment hire in the Snowy Monaro: small plant, tree chipper, EWP, compressors, generators and machines with an operator, plus site sheds, toilets, temporary fencing and erosion controls.'),
+ 'labour-hire': ('Labour Hire, Rubbish Removal & Property Clean-Outs | Snowy Skips',
+   'Don\'t want to load the bin? Our crew and machines load, separate and cart your rubbish to the landfill. Property clean-outs, estates and site clean-ups across the Snowy Monaro.'),
+ 'about': ('About & Contact | Locally Owned in Berridale | Snowy Skips',
+   'Snowy Skips is a locally owned skip bin, equipment and labour hire business at 8–10 Basalt Street, Berridale NSW. Call 0408 632 007 or email bookings@snowyskips.com.au.'),
+ 'skip-bin-guide': ('Skip Bin Guide | What Can Go in a Skip Bin | Snowy Skips',
+   'What can and can\'t go in a skip bin, how to load it, how to avoid extra charges, and our hire conditions. The Snowy Skips Skip Bin Guide.'),
+ 'skip-bin-permits': ('Do I Need a Council Permit for a Skip Bin? | Snowy Monaro | Snowy Skips',
+   'Do you need a council permit for a skip bin in Cooma, Jindabyne or Berridale? On your property, generally no. On the road or footpath, yes. Here is how it works, and how we can apply for you.'),
+ 'faq': ('Skip Bin FAQs | Sizes, Prices, Permits & Landfill | Snowy Skips',
+   'Answers to common skip bin questions: sizes, prices, landfill fees, hire length, permits, what can go in, loading and soil/VENM, across the Snowy Monaro.'),
+}
+
+# anchor -> page
+anchor_page = {}
+for pid in PAGES:
+    for a in re.findall(r' id="([^"]+)"', mains[pid]):
+        anchor_page.setdefault(a, pid)
+path = lambda pid: '/' if pid == 'home' else f'/{pid}/'
+def target(x, cur=None):
+    if x in PAGES: return path(x)
+    if x in anchor_page:
+        p = anchor_page[x]
+        return f'#{x}' if p == cur else f'{path(p)}#{x}'
+    return path('home')
+def relink(s, cur=None):
+    s = re.sub(r'href="/?#([^"]*)"', lambda m: f'href="{target(m.group(1) or "home", cur)}"', s)
+    return s.replace('src="img/', 'src="/img/').replace('href="img/', 'href="/img/')
+
+SCRIPT = '''<script>
+(function(){
+  document.addEventListener('click',function(e){document.querySelectorAll('details.nav-guides').forEach(function(d){if(!d.contains(e.target))d.open=false;});});
+%s})();
+</script>''' % forms_js
+REDIRECT = '<script>(function(){var m={%s};var h=location.hash.slice(1);if(m[h])location.replace(m[h]);})();</script>' % ','.join(
+    f'"{k}":"{target(k)}"' for k in sorted(set(PAGES) | set(anchor_page)) if k != 'home' and (k in PAGES or anchor_page.get(k) != 'home'))
+
+base_head = head.replace('<link rel="icon" href="img/', '<link rel="icon" href="/img/')
+base_head = base_head.replace('</style>', '[id]{scroll-margin-top:150px}\n</style>', 1)
+ld_home = re.search(r'<script type="application/ld\+json">.*?</script>\n', base_head).group(0)
+urls = []
+for pid in PAGES:
+    hd = base_head
+    if pid != 'home':
+        t, desc = META[pid]
+        hd = re.sub(r'<title>.*?</title>', f'<title>{H_.escape(t, quote=False)}</title>', hd)
+        hd = re.sub(r'<meta name="description" content="[^"]*">', f'<meta name="description" content="{H_.escape(desc)}">', hd)
+        hd = hd.replace('<link rel="canonical" href="https://snowyskips.com.au/">', f'<link rel="canonical" href="{SITE}{path(pid)}">')
+        hd = hd.replace(ld_home, '<script type="application/ld+json">' + json.dumps(faq_ld) + '</script>\n' if pid == 'faq' else '')
+    else:
+        hd = hd.replace('</head>', REDIRECT + '\n</head>')
+    hdr = relink(header, pid).replace(f'href="{path(pid)}" style="color: #1f1f1f', f'class="current" href="{path(pid)}" style="color: #1f1f1f') if pid != 'home' else relink(header, pid)
+    body = f'<body>\n{hdr}\n<main class="page active" id="page-{pid}">\n{relink(mains[pid], pid)}\n</main>\n{relink(footer, pid)}\n{SCRIPT}\n</body>\n</html>\n'
+    fn = OUT + ('index.html' if pid == 'home' else f'{pid}/index.html')
+    os.makedirs(os.path.dirname(fn), exist_ok=True)
+    open(fn, 'w').write(hd + body)
+    urls.append(SITE + path(pid))
+
+# town pages: rewrite /#x links
+towns = sorted(glob.glob(OUT + 'skip-bin-hire-*/index.html'))
+for fn in towns:
+    s = open(fn).read()
+    s = s.replace('Snowy Skips Skip Bin Guide</a>', 'Snowy Skips Skip Bin Guide</a><a href="/faq/" style="display: block; padding: 8px 16px; color: #1f1f1f; text-decoration: none">Skip bin FAQs</a><a href="/skip-bin-permits/" style="display: block; padding: 8px 16px; color: #1f1f1f; text-decoration: none">Council permits for skip bins</a>', 1)
+    s = re.sub(r'href="/#([^"]*)"', lambda m: f'href="{target(m.group(1) or "home")}"', s)
+    open(fn, 'w').write(s)
+    urls.append(SITE + '/' + os.path.relpath(os.path.dirname(fn), OUT) + '/')
+
+open(OUT + 'sitemap.xml', 'w').write('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
+    + ''.join(f'<url><loc>{u}</loc></url>\n' for u in urls) + '</urlset>\n')
+# sanity
+left = []
+for fn in glob.glob(OUT + '**/index.html', recursive=True):
+    s = open(fn).read()
+    left += [(fn, m) for m in re.findall(r'href="(/?#[^"]*)"', s) if not m.startswith('#')]
+    assert 'src="img/' not in s, fn
+print(len(PAGES), 'section pages,', len(towns), 'town pages,', len(urls), 'urls; odd links:', left[:5])

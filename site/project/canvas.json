@@ -1,0 +1,158 @@
+{
+ "v": 3,
+ "createdOnFiles": {
+  "v": 1,
+  "at": "2026-11-23T09:25:00Z"
+ },
+ "title": "Snowy Skips website",
+ "launch": {
+  "view": "canvas"
+ },
+ "pages": [],
+ "boards": {
+  "Main.dc.html": {
+   "x": 0,
+   "y": 0,
+   "w": 1440,
+   "h": 5200,
+   "title": "Home \u2014 desktop",
+   "expand": "fill"
+  },
+  "Pricing.dc.html": {
+   "x": 0,
+   "y": 5500,
+   "w": 1440,
+   "h": 5700,
+   "title": "Pricing & service areas \u2014 zone map (draft prices)",
+   "expand": "fill"
+  },
+  "Landfill.dc.html": {
+   "x": 0,
+   "y": 11500,
+   "w": 1440,
+   "h": 5700,
+   "title": "Landfill costs \u2014 real loads, real weights",
+   "expand": "fill"
+  },
+  "Skips.dc.html": {
+   "x": 0,
+   "y": 17500,
+   "w": 1440,
+   "h": 5500,
+   "title": "Skip Bins page",
+   "expand": "fill"
+  },
+  "Equipment.dc.html": {
+   "x": 0,
+   "y": 23300,
+   "w": 1440,
+   "h": 4500,
+   "title": "Equipment Hire page",
+   "expand": "fill"
+  },
+  "Labour.dc.html": {
+   "x": 0,
+   "y": 29200,
+   "w": 1440,
+   "h": 4800,
+   "title": "Labour Hire page",
+   "expand": "fill"
+  },
+  "About.dc.html": {
+   "x": 0,
+   "y": 34300,
+   "w": 1440,
+   "h": 2500,
+   "title": "About & Contact page",
+   "expand": "fill"
+  },
+  "Guide.dc.html": {
+   "x": 0,
+   "y": 37100,
+   "w": 1440,
+   "h": 5200,
+   "title": "Skip Bin Guide page",
+   "expand": "fill"
+  },
+  "MainA.dc.html": {
+   "x": 2100,
+   "y": 0,
+   "w": 1440,
+   "h": 5200,
+   "title": "Home \u2014 Option A: Bold photo hero",
+   "expand": "fill"
+  },
+  "MainB.dc.html": {
+   "x": 3640,
+   "y": 0,
+   "w": 1440,
+   "h": 5200,
+   "title": "Home \u2014 Option B: Clean & light",
+   "expand": "fill"
+  }
+ },
+ "order": [
+  "Main.dc.html",
+  "MainA.dc.html",
+  "MainB.dc.html",
+  "Pricing.dc.html",
+  "Landfill.dc.html",
+  "Skips.dc.html",
+  "Equipment.dc.html",
+  "Labour.dc.html",
+  "About.dc.html",
+  "Guide.dc.html"
+ ],
+ "notes": {
+  "t1": {
+   "x": 0,
+   "y": -300,
+   "text": "Snowy Skips \u2014 new website",
+   "kind": "title1",
+   "maxW": 1440
+  },
+  "s1": {
+   "x": 1540,
+   "y": 0,
+   "w": 460,
+   "text": "Home page first draft. [Brackets] = details to confirm: email, bin sizes/prices, towns serviced, photos. Photos are grey placeholders until we have real shots of our trucks, bins and crew.",
+   "fill": "orange"
+  },
+  "s2": {
+   "x": 1540,
+   "y": 5500,
+   "w": 460,
+   "text": "Zones kept as mapped (Al, 23 Nov). Prices inc GST, up to 7 days hire; hotshot 10% shown (never below minimum); extra days $15/$20/$25 (Al confirmed 24 Nov). No Bombala all-in examples published.",
+   "fill": "orange"
+  },
+  "s3": {
+   "x": 1540,
+   "y": 11500,
+   "w": 460,
+   "text": "Weights from Snowy Skips app dockets. Priced at council 2026\u201327 rates inc GST: general $270/t, building & demolition $320/t, concrete $99/t, green $95/t. On the day the landfill sets the category at the weighbridge (Al, 24 Nov).",
+   "fill": "orange"
+  },
+  "s4": {
+   "x": 1540,
+   "y": 17500,
+   "w": 460,
+   "text": "Skip Bins page draft. From-prices are Cooma inc GST. Sizes 2/5/8 m\u00b3 \u2014 confirm bin dimensions if you want them shown. Book buttons go to the booking flow once the platform is chosen.",
+   "fill": "orange"
+  },
+  "s5": {
+   "x": 1540,
+   "y": 23300,
+   "w": 460,
+   "text": "Equipment: small plant dry hire (pumps, saws, jackhammers, up to 12-inch chipper); loaders/excavators wet hire only (Al, 24 Nov). Rates by quote. Grey boxes = photos still needed (small plant, crew loading). Business hours still to confirm.",
+   "fill": "orange"
+  },
+  "s_opt": {
+   "x": 2100,
+   "y": -180,
+   "w": 1440,
+   "text": "Two style options for Al to compare with the current home page (left). A: full-width photo hero with dark overlay, orange buttons, dark header, green trust strip. B: clean white, big headline, rounded photo with a 'waste tracked' badge, pill buttons, stats row. Pick one (or mix) and it gets applied across every page.",
+   "fill": "orange"
+  }
+ },
+ "designSystems": []
+}
