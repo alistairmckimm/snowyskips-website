@@ -9,9 +9,9 @@ ZONES = {
                note='Further out, but still our patch — give us a call and we\'ll plan deliveries around runs already heading your way.'),
  'alpine': dict(name='Alpine resorts', towns=['Thredbo','Perisher','Smiggin Holes','Guthega','Charlotte Pass','Mount Selwyn'], prices=None, hot=None,
                note='Access can be difficult in some of these areas, so it\'s best to give us a call and walk us through your project\'s access and any special requirements.'),
- 'quote': dict(name='Outer areas', towns=['Khancoban','Cabramurra','Kiandra','Countegany','Cann River'], prices=None, hot=None,
-               note='Right out to Khancoban, Cabramurra, Countegany and Cann River — call us for a price and we\'ll work out the best way to get a bin to you.'),
+ 'quote': dict(name='Outer areas', towns=['Khancoban','Cabramurra','Kiandra','Countegany','Corryong','Walwa','Cudgewa','Tintaldra','Towong','Bendoc','Cann River'], prices=None, hot=None,
+               note='Right out to Khancoban, Corryong, Walwa, Cabramurra, Bendoc and Cann River — call us for a price and we\'ll work out the best way to get a bin to you.'),
 }
-STATE = {'Cann River':'VIC'}
+STATE = {'Cann River':'VIC','Corryong':'VIC','Walwa':'VIC','Cudgewa':'VIC','Tintaldra':'VIC','Towong':'VIC','Bendoc':'VIC'}
 def slug(t): return t.lower().replace(' ','-')
 ALL = [(t,k) for k,z in ZONES.items() for t in z['towns']]

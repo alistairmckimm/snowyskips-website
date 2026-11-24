@@ -56,7 +56,7 @@ FAQ = [
   "Yes. You don't have to load a bin at all. Our crew and machines can come to your site, load it, separate it and take it right through to the landfill. Send us a few clear photos of everything that's going and we can generally quote the whole job, bin and loading together.",
   'See <a href="/labour-hire/">labour hire and clean-outs</a>.'),
  ("What areas do you service?",
-  "We're based in Berridale and service the whole Snowy Monaro: Cooma, Polo Flat, Berridale, Jindabyne, East Jindabyne, Kalkite, Dalgety, Crackenback, Adaminaby, Bredbo, Numeralla, Nimmitabel, Bombala, Delegate, Michelago and more. Thredbo, Perisher, Charlotte Pass and the alpine resorts are by quote, because access can be difficult.",
+  "We're based in Berridale and service the whole Snowy Monaro: Cooma, Polo Flat, Berridale, Jindabyne, East Jindabyne, Kalkite, Dalgety, Crackenback, Adaminaby, Bredbo, Numeralla, Nimmitabel, Bombala, Delegate, Michelago and more. Thredbo, Perisher, Charlotte Pass and the alpine resorts are by quote, because access can be difficult. We also go further out by quote: the Upper Murray around Khancoban, Corryong and Walwa, and East Gippsland around Bendoc and Cann River.",
   'See <a href="/pricing/">service areas and zones</a>.'),
  ("Can you take soil, fill or VENM?",
   "Yes. Under NSW law excavated soil is classed as waste, even when it's clean. We cart and dispose of virgin excavated natural material (VENM) in our skip bins and trucks with the right paperwork and full tracking. Soil generally needs to be tested before it's moved, and it must be kept clean and never mixed with other waste.",
