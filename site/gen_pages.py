@@ -210,7 +210,8 @@ mains['too-good-to-tip'] = f'''<section style="background: #F5F2EC">
 <li>Gas appliances and anything that runs on fuel</li>
 <li>Cots, car seats, prams, high chairs and helmets</li>
 <li>Recalled or damaged items</li>
-<li>Mattresses and soft furnishings that aren't clean and in good condition</li>
+<li>Used mattresses (we only give away mattresses that are brand new)</li>
+<li>Soft furnishings that aren't clean and in good condition</li>
 <li>Anything that may contain asbestos</li>
 <li>Electrical items, unless clearly marked as tested, or as "untested, for parts only"</li>
 </ul>

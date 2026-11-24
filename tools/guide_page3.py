@@ -33,7 +33,7 @@ para('<b>We never go through the contents of your bin</b>, or through private do
 y2=bx_top-bh-30
 c.setFont('LSB',13); c.setFillColor(NAVY); c.drawString(L,y2,'Good to know')
 items=['<b>Your bin, your business:</b> personal items like old documents and photos can go in your bin as normal. We never go through your bin, and only items you leave on top for reuse are looked at.',
-'<b>What we never give away:</b> gas appliances, child safety items (cots, car seats, prams, helmets), recalled or damaged items, unclean mattresses, anything that may contain asbestos, and untested electrical items unless clearly marked.',
+'<b>What we never give away:</b> gas appliances, child safety items (cots, car seats, prams, helmets), recalled or damaged items, used mattresses (only brand-new ones), anything that may contain asbestos, and untested electrical items unless clearly marked.',
 '<b>For locals who need them:</b> items go to people who will reuse them or are doing it tough. Anyone found reselling is banned from the program.',
 '<b>Unclaimed items</b> are recycled or disposed of properly after about 4 weeks.',
 'See what\'s available: <b>snowyskips.com.au/too-good-to-tip</b>']
