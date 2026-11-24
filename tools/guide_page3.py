@@ -32,7 +32,7 @@ c.setFont('LSB',13); c.setFillColor(HexColor('#B03024')); c.drawString(L+18,bx_t
 para('<b>We never go through the contents of your bin</b>, or through private documents, photos or personal belongings. We only look at items you choose to leave on top of the load for reuse.<br/><br/>If anything must not be reused, or if <b>all the contents of your bin must go directly to landfill</b>, tell us when you book or before we pick up the bin. Unless you tell us otherwise, items you leave on top for reuse may be given away through the program.',body,L+18,bx_top-bh+8,R-L-36,bh-40)
 y2=bx_top-bh-30
 c.setFont('LSB',13); c.setFillColor(NAVY); c.drawString(L,y2,'Good to know')
-items=['<b>Personal items:</b> please remove documents, photos, hard drives, phones and anything with personal information. We never give away anything containing personal information.',
+items=['<b>Your bin, your business:</b> personal items like old documents and photos can go in your bin as normal. We never go through your bin, and only items you leave on top for reuse are looked at.',
 '<b>What we never give away:</b> gas appliances, child safety items (cots, car seats, prams, helmets), recalled or damaged items, unclean mattresses, anything that may contain asbestos, and untested electrical items unless clearly marked.',
 '<b>For locals who need them:</b> items go to people who will reuse them or are doing it tough. Anyone found reselling is banned from the program.',
 '<b>Unclaimed items</b> are recycled or disposed of properly after about 4 weeks.',
