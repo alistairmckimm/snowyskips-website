@@ -30,7 +30,7 @@ FAQ = [
   "Landfill is charged on top of the bin hire, at cost, at the council's current rates. Every load is weighed on the landfill weighbridge and you get the docket. As a rough guide, a 2 m³ household clean-out we weighed at 0.24 t cost about $65 to tip, and a 5 m³ load of timber and building waste at 1.4 t cost about $450.",
   'See <a href="/landfill-costs/">real loads and what they cost</a>.'),
  ("How long can I keep the bin?",
-  "Prices cover up to 7 days. After that it's $15 a day for a 2 m³ bin, $20 a day for a 5 m³ bin and $25 a day for an 8 m³ bin. Building sites can ask about a permanent bin on a site account.", ''),
+  "Prices cover up to 7 days. After that it's $15 a day for a 2 m³ bin, $20 a day for a 5 m³ bin and $25 a day for an 8 m³ bin. Farms, rural properties and building sites can also keep a permanent bin with no set pickup days. Give us a few days' notice when it's ready to empty and we'll fit it into our regular runs, which keeps the price well down.", ''),
  ("How quickly can you deliver a skip bin?",
   "We can generally deliver and pick up within 24 hours' notice, but ideally book well ahead so your project runs smoothly. ASAP and emergency jobs may cost extra.", ''),
  ("Is it cheaper to get a changeover or more than one bin?",
