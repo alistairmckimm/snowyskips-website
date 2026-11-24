@@ -183,7 +183,7 @@ mains['too-good-to-tip'] = f'''<section style="background: #F5F2EC">
 <div style="font-weight: 700; letter-spacing: 2px; font-size: 14px; color: #4F7230">OUR COMMUNITY REUSE PROGRAM</div>
 <h1 style="{HS}; font-size: 42px; line-height: 1.1; margin: 10px 0 0 0">Too Good to Tip Giveaways</h1>
 <p style="margin: 8px 0 0 0; font-size: 22px; font-weight: 700; color: #4F7230">Free items for locals who need them</p>
-<p style="margin: 16px 0 0 0; font-size: 20px; max-width: 820px">When we pick up furniture, tools, building materials and other items that are still in good shape, we set them aside instead of tipping them and give them away free to locals who need them. It keeps good things out of landfill and helps out in tough times.</p>
+<p style="margin: 16px 0 0 0; font-size: 20px; max-width: 820px">When we pick up furniture, tools, building materials and other items that are still in good shape, we set them aside instead of tipping them and give them away free to locals who need them, can reuse them, or are doing it tough. We never go through private documents, photos or personal belongings: we only set aside items of value in good, usable condition. It keeps good things out of landfill and helps out in tough times.</p>
 </div>
 </section>
 <section style="max-width: 1100px; margin: 0 auto; padding: 32px 24px 8px 24px">
