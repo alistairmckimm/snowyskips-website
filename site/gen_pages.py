@@ -43,6 +43,9 @@ FAQ = [
  ("Can I put a mattress, fridge or tyres in the bin?",
   "Ask us first. Fridges, freezers, air-conditioners, mattresses, tyres, batteries, paint, gas bottles, chemicals, TVs and electronics go to their own area at the landfill. Place them on top of the load so they can be separated. A separation fee of $49.50 inc GST and the item's own council fee apply.",
   'See <a href="/pricing/#extra-charges">extra charges</a>.'),
+ ("Can you pick up just one item, like a fridge or a mattress?",
+  "Yes. You don't need a whole skip bin for one fridge, a mattress, a couch or a desk. If our trucks are in your area, a single item pickup is generally $49 plus the landfill fee for the item. Further out, the price depends on the distance and where our trucks are running, so call us for a quote.",
+  'See <a href="/single-item-pickup/">single item pickups</a>.'),
  ("Do I need a council permit for a skip bin?",
   "On your own property (driveway, yard or building site) you generally don't need one. If the bin has to go on the road, nature strip or footpath, you need Snowy Monaro Regional Council's approval under Section 138 of the Roads Act first. We can handle the application for you: we hold $20 million public liability insurance and have the safe work method statements, and an accredited traffic control company prepares the traffic plan. Allow time for council to approve it.",
   'Read <a href="/skip-bin-permits/">council permits for skip bins</a>.'),
@@ -117,6 +120,40 @@ mains['skip-bin-permits'] = f'''<section style="background: #F5F2EC">
 </section>'''
 PAGES.append('skip-bin-permits')
 
+# ---------- Single item pickup ----------
+mains['single-item-pickup'] = f'''<section style="background: #F5F2EC">
+<div style="max-width: 860px; margin: 0 auto; padding: 56px 24px">
+<div style="font-weight: 700; letter-spacing: 2px; font-size: 14px; color: #4F7230">SINGLE ITEM PICKUPS</div>
+<h1 style="{HS}; font-size: 42px; line-height: 1.1; margin: 10px 0 0 0">Just one fridge, mattress or couch to go? We'll pick it up.</h1>
+<p style="margin: 16px 0 0 0; font-size: 20px">You don't need a whole skip bin for one or two bulky items. Our trucks run right across the Snowy Monaro every week, so we can call in, load it and take it to the landfill for you.</p>
+<p style="margin: 16px 0 0 0; font-size: 22px"><strong>Generally $49 plus landfill</strong> for a single item when our trucks are in your area.</p>
+</div>
+</section>
+<section style="max-width: 860px; margin: 0 auto; padding: 8px 24px 56px 24px">
+<h2 style="{H2}">What we pick up</h2>
+<ul style="margin: 14px 0 0 0; padding-left: 22px; font-size: 18px; line-height: 1.7">
+<li>Fridges and freezers</li>
+<li>Mattresses and bed bases</li>
+<li>Couches, armchairs and other furniture</li>
+<li>Desks, tables, cabinets and wardrobes</li>
+<li>Washing machines, dryers and other whitegoods</li>
+<li>Any other bulky item that's too big for the car or the wheelie bin</li>
+</ul>
+<p style="{P}">One item, two items or a small load: just tell us what's going.</p>
+<h2 style="{H2}">What it costs</h2>
+<p style="{P}">If our trucks are already in your area, a single item pickup is <strong>generally $49 plus the landfill fee</strong> for the item. Fridges, mattresses, tyres and similar items have their own council landfill fees, which we pass on at cost.</p>
+<p style="{P}">If you're further out, the price goes up on a sliding scale depending on the distance and where our trucks are running that week. Call us and we'll give you a price before we come.</p>
+<h2 style="{H2}">How it works</h2>
+<ol style="margin: 14px 0 0 0; padding-left: 22px; font-size: 18px; line-height: 1.7">
+<li>Call us on <a href="tel:0408632007">0408 632 007</a> or send a photo of the item and where it is.</li>
+<li>We give you a price and fit the pickup in when our trucks are running your way.</li>
+<li>We load it, take it to the landfill and dispose of it properly.</li>
+</ol>
+<p style="{P}">Got more than a few items? A <a href="/skip-bins/">skip bin</a> or our <a href="/labour-hire/">clean-out crew</a> may work out cheaper.</p>
+<div style="display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px"><a href="tel:0408632007" style="background: #4F7230; color: #fff; text-decoration: none; font-weight: 700; padding: 14px 22px; border-radius: 8px">Call 0408 632 007</a><a href="#contact" style="background: #fff; color: #52372A; text-decoration: none; font-weight: 700; padding: 12px 20px; border-radius: 8px; border: 2px solid #52372A">Get a quote</a></div>
+</section>'''
+PAGES.append('single-item-pickup')
+
 META = {
  'home': (None, None),
  'skip-bins': ('Skip Bin Hire Snowy Monaro | 1.5 to 12 m³ Bins | Snowy Skips',
@@ -133,6 +170,8 @@ META = {
    'Snowy Skips is a locally owned skip bin, equipment and labour hire business at 8–10 Basalt Street, Berridale NSW. Call 0408 632 007 or email bookings@snowyskips.com.au.'),
  'skip-bin-guide': ('Skip Bin Guide | What Can Go in a Skip Bin | Snowy Skips',
    'What can and can\'t go in a skip bin, how to load it, how to avoid extra charges, and our hire conditions. The Snowy Skips Skip Bin Guide.'),
+ 'single-item-pickup': ('Single Item Pickup & Bulky Rubbish Removal | Snowy Monaro | Snowy Skips',
+   'Fridge, mattress, couch or desk to go? Snowy Skips picks up single bulky items across the Snowy Monaro, generally $49 plus landfill when our trucks are in your area.'),
  'skip-bin-permits': ('Do I Need a Council Permit for a Skip Bin? | Snowy Monaro | Snowy Skips',
    'Do you need a council permit for a skip bin in Cooma, Jindabyne or Berridale? On your property, generally no. On the road or footpath, yes. Here is how it works, and how we can apply for you.'),
  'faq': ('Skip Bin FAQs | Sizes, Prices, Permits & Landfill | Snowy Skips',
