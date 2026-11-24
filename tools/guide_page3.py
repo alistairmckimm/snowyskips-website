@@ -23,16 +23,16 @@ def para(txt,st,x,y,w,h):
 y=H-hh-40
 c.setFont('LSB',20); c.setFillColor(NAVY); c.drawString(L,y,'Too Good to Tip Giveaways')
 c.setFont('LS',12); c.setFillColor(GREEN); c.drawString(L,y-18,'Our community reuse program')
-para('Some items that come out of your bin are simply too good to go to landfill. When we find good-quality furniture, tools, building materials or other items, we may set them aside and give them away free through our <b>Too Good to Tip Giveaways</b> program, instead of tipping them. They go to locals who need them, can reuse them, or are doing it tough. It keeps good things out of landfill and helps people in our community.',body,L,y-100,R-L,72)
+para('Got something in good condition that someone else could use? <b>Just leave it on top of your bin load</b> and we\'ll assess whether it can be given away free through our <b>Too Good to Tip Giveaways</b> program, to locals who need it, can reuse it, or are doing it tough. It keeps good things out of landfill and can lower your landfill fees.',body,L,y-100,R-L,72)
 # notice box
 bx_top=y-112; bh=140
 c.setFillColor(HexColor('#FBEBE7')); c.roundRect(L,bx_top-bh,R-L,bh,6,stroke=0,fill=1)
 c.setFillColor(HexColor('#B03024')); c.rect(L,bx_top-bh,5,bh,stroke=0,fill=1)
 c.setFont('LSB',13); c.setFillColor(HexColor('#B03024')); c.drawString(L+18,bx_top-24,'Everything must go to landfill? Tell us.')
-para('Snowy Skips will <b>never go through private documents, photos or personal belongings</b>. The only items we set aside for our community reuse program are items of value in good, usable condition.<br/><br/>If any items must not be reused, or if <b>all the contents of your bin must go directly to landfill</b>, you must tell us when you book or before we pick up the bin. Unless you tell us otherwise, by hiring a Snowy Skips bin you agree that suitable items may be set aside and given away through the program.',body,L+18,bx_top-bh+8,R-L-36,bh-40)
+para('<b>We never go through the contents of your bin</b>, or through private documents, photos or personal belongings. We only look at items you choose to leave on top of the load for reuse.<br/><br/>If anything must not be reused, or if <b>all the contents of your bin must go directly to landfill</b>, tell us when you book or before we pick up the bin. Unless you tell us otherwise, items you leave on top for reuse may be given away through the program.',body,L+18,bx_top-bh+8,R-L-36,bh-40)
 y2=bx_top-bh-30
 c.setFont('LSB',13); c.setFillColor(NAVY); c.drawString(L,y2,'Good to know')
-items=['<b>Personal items:</b> please remove documents, photos, hard drives, phones and anything with personal information before your bin is collected. We don\'t give away anything containing personal information.',
+items=['<b>Personal items:</b> please remove documents, photos, hard drives, phones and anything with personal information. We never give away anything containing personal information.',
 '<b>What we never give away:</b> gas appliances, child safety items (cots, car seats, prams, helmets), recalled or damaged items, unclean mattresses, anything that may contain asbestos, and untested electrical items unless clearly marked.',
 '<b>For locals who need them:</b> items go to people who will reuse them or are doing it tough. Anyone found reselling is banned from the program.',
 '<b>Unclaimed items</b> are recycled or disposed of properly after about 4 weeks.',
