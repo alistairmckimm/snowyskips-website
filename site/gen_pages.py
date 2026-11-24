@@ -194,7 +194,7 @@ mains['free-items'] = f'''<section style="background: #F5F2EC">
 <ol style="margin: 14px 0 0 0; padding-left: 22px; font-size: 18px; line-height: 1.7">
 <li>Call or message us on <a href="tel:0408632007">0408 632 007</a> with the item you'd like, and tell us a little about what you need it for.</li>
 <li>We'll arrange a time for you to collect it from our depot. Please don't turn up unannounced.</li>
-<li>Bring a vehicle and enough help to load it safely, or ask us about delivery. We can deliver for a fee.</li>
+<li>Bring a vehicle and enough help to load it safely, or ask us about delivery: from $49 when our trucks are in your area, depending on the size of the item.</li>
 </ol>
 <h2 style="{H2}">The rules</h2>
 <ul style="margin: 14px 0 0 0; padding-left: 22px; font-size: 18px; line-height: 1.7">
