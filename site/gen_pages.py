@@ -14,7 +14,7 @@ PAGES = list(mains)  # home, skip-bins, pricing, ...
 
 # FAQ link in the Customer Guide menu
 header = header.replace('Snowy Skips Skip Bin Guide</a>',
-    'Snowy Skips Skip Bin Guide</a><a href="#faq" style="display: block; padding: 8px 16px; color: #1f1f1f; text-decoration: none">Skip bin FAQs</a><a href="#skip-bin-permits" style="display: block; padding: 8px 16px; color: #1f1f1f; text-decoration: none">Council permits for skip bins</a>', 1)
+    'Snowy Skips Skip Bin Guide</a><a href="#faq" style="display: block; padding: 8px 16px; color: #1f1f1f; text-decoration: none">Skip bin FAQs</a><a href="#skip-bin-permits" style="display: block; padding: 8px 16px; color: #1f1f1f; text-decoration: none">Council permits for skip bins</a><a href="#free-items" style="display: block; padding: 8px 16px; color: #1f1f1f; text-decoration: none">Free to a good home</a>', 1)
 footer = footer.replace('<a href="#landfill-costs" style="color: #e8e2d9">Landfill Costs</a>',
     '<a href="#landfill-costs" style="color: #e8e2d9">Landfill Costs</a><br><a href="#faq" style="color: #e8e2d9">FAQs</a>', 1)
 
@@ -166,6 +166,58 @@ mains['single-item-pickup'] = f'''<section style="background: #F5F2EC">
 </section>'''
 PAGES.append('single-item-pickup')
 
+# ---------- Free to a good home ----------
+import json as _json, os as _os, shutil as _sh, datetime as _dt
+_items = _json.load(open('/home/claude/site/free_items.json'))
+_os.makedirs(OUT + 'img/free', exist_ok=True)
+def _fmt(d): return _dt.date.fromisoformat(d).strftime('%-d %b %Y')
+_cards = ''
+for it in _items:
+    if it.get('gone'): continue
+    _sh.copy('/home/claude/site/free_items/' + it['photo'], OUT + 'img/free/' + it['photo'])
+    _cards += f'''<article data-listed="{it['listed']}" style="border: 1px solid #e4e0d8; border-radius: 10px; overflow: hidden; background: #fff"><img src="/img/free/{it['photo']}" alt="{it['name']}" loading="lazy" style="width: 100%; aspect-ratio: 4 / 3; object-fit: cover; display: block"><div style="padding: 14px 16px"><h3 style="{HS}; font-size: 19px; margin: 0">{it['name']}</h3><p style="margin: 6px 0 0 0; font-size: 16px">{it.get('desc','')}</p><p style="margin: 8px 0 0 0; font-size: 14px; color: #666">Listed {_fmt(it['listed'])}</p></div></article>'''
+if not _cards:
+    _cards = '<p style="font-size: 18px; margin: 0; grid-column: 1 / -1; background: #F5F2EC; border-radius: 10px; padding: 18px 20px">Nothing on the list right now. Check back soon, or follow us on Facebook for new items.</p>'
+mains['free-items'] = f'''<section style="background: #F5F2EC">
+<div style="max-width: 1100px; margin: 0 auto; padding: 56px 24px">
+<div style="font-weight: 700; letter-spacing: 2px; font-size: 14px; color: #4F7230">FREE TO A GOOD HOME</div>
+<h1 style="{HS}; font-size: 42px; line-height: 1.1; margin: 10px 0 0 0">Good gear shouldn't go to landfill</h1>
+<p style="margin: 16px 0 0 0; font-size: 20px; max-width: 820px">When we pick up furniture, tools, building materials and other items that are still in good shape, we set them aside instead of tipping them. They're free for locals who need them. It keeps good things out of landfill and helps out in tough times.</p>
+</div>
+</section>
+<section style="max-width: 1100px; margin: 0 auto; padding: 32px 24px 8px 24px">
+<h2 style="{H2}; margin-top: 0">Available now</h2>
+<div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 20px; margin-top: 18px">{_cards}</div>
+</section>
+<section style="max-width: 860px; margin: 0 auto; padding: 8px 24px 56px 24px">
+<h2 style="{H2}">How it works</h2>
+<ol style="margin: 14px 0 0 0; padding-left: 22px; font-size: 18px; line-height: 1.7">
+<li>Call or message us on <a href="tel:0408632007">0408 632 007</a> with the item you'd like, and tell us a little about what you need it for.</li>
+<li>We'll arrange a time for you to collect it from our depot. Please don't turn up unannounced.</li>
+<li>Bring a vehicle and enough help to load it safely. We can't deliver free items.</li>
+</ol>
+<h2 style="{H2}">The rules</h2>
+<ul style="margin: 14px 0 0 0; padding-left: 22px; font-size: 18px; line-height: 1.7">
+<li><strong>For people who'll use them, not resell them.</strong> Anyone found reselling items they got from us will be banned from taking free items in future.</li>
+<li><strong>Items are listed for about 4 weeks.</strong> Anything not collected by then goes to the council's reuse centre or is recycled or disposed of properly.</li>
+<li>One or two items per household at a time, so more people get a go.</li>
+<li>First in, best dressed. We may hold an item for someone in genuine need.</li>
+</ul>
+<h2 style="{H2}">What we don't give away</h2>
+<ul style="margin: 14px 0 0 0; padding-left: 22px; font-size: 18px; line-height: 1.7">
+<li>Gas appliances and anything that runs on fuel</li>
+<li>Cots, car seats, prams, high chairs and helmets</li>
+<li>Recalled or damaged items</li>
+<li>Mattresses and soft furnishings that aren't clean and in good condition</li>
+<li>Anything that may contain asbestos</li>
+<li>Electrical items, unless clearly marked as tested, or as "untested, for parts only"</li>
+</ul>
+<div style="margin-top: 32px; border-top: 2px solid #e4e0d8; padding-top: 18px; font-size: 15px; color: #555; line-height: 1.6">
+<strong>Disclaimer.</strong> All items are second-hand and given away free, as is, with no warranty of any kind. We haven't inspected or tested them unless we say so. Electrical items are untested unless clearly marked otherwise: have them tested and tagged by a licensed electrician before you use them. You're responsible for checking an item is safe and suitable before you take it or use it, and for loading and transporting it safely. Snowy Skips and McKimm Civil Pty Ltd accept no liability for any loss, damage or injury arising from items taken, to the extent the law allows. We may refuse any request.
+</div>
+</section>'''
+PAGES.append('free-items')
+
 META = {
  'home': (None, None),
  'skip-bins': ('Skip Bin Hire Snowy Monaro | 1.5 to 12 m³ Bins | Snowy Skips',
@@ -182,6 +234,8 @@ META = {
    'Snowy Skips is a locally owned skip bin, equipment and labour hire business at 8–10 Basalt Street, Berridale NSW. Call 0408 632 007 or email bookings@snowyskips.com.au.'),
  'skip-bin-guide': ('Skip Bin Guide | What Can Go in a Skip Bin | Snowy Skips',
    'What can and can\'t go in a skip bin, how to load it, how to avoid extra charges, and our hire conditions. The Snowy Skips Skip Bin Guide.'),
+ 'free-items': ('Free to a Good Home | Reused Items | Snowy Skips',
+   'Good-condition furniture, tools and materials we\'ve saved from landfill, free for Snowy Monaro locals who need them. See what\'s available and how to collect.'),
  'single-item-pickup': ('Single Item Pickup & Bulky Rubbish Removal | Snowy Monaro | Snowy Skips',
    'Fridge, mattress, couch or desk to go? Snowy Skips picks up single bulky items across the Snowy Monaro, generally $49 plus landfill when our trucks are in your area.'),
  'skip-bin-permits': ('Do I Need a Council Permit for a Skip Bin? | Snowy Monaro | Snowy Skips',
@@ -239,7 +293,7 @@ for pid in PAGES:
 towns = sorted(glob.glob(OUT + 'skip-bin-hire-*/index.html'))
 for fn in towns:
     s = open(fn).read()
-    s = s.replace('Snowy Skips Skip Bin Guide</a>', 'Snowy Skips Skip Bin Guide</a><a href="/faq/" style="display: block; padding: 8px 16px; color: #1f1f1f; text-decoration: none">Skip bin FAQs</a><a href="/skip-bin-permits/" style="display: block; padding: 8px 16px; color: #1f1f1f; text-decoration: none">Council permits for skip bins</a>', 1)
+    s = s.replace('Snowy Skips Skip Bin Guide</a>', 'Snowy Skips Skip Bin Guide</a><a href="/faq/" style="display: block; padding: 8px 16px; color: #1f1f1f; text-decoration: none">Skip bin FAQs</a><a href="/skip-bin-permits/" style="display: block; padding: 8px 16px; color: #1f1f1f; text-decoration: none">Council permits for skip bins</a><a href="/free-items/" style="display: block; padding: 8px 16px; color: #1f1f1f; text-decoration: none">Free to a good home</a>', 1)
     s = re.sub(r'href="/#([^"]*)"', lambda m: f'href="{target(m.group(1) or "home")}"', s)
     open(fn, 'w').write(s)
     urls.append(SITE + '/' + os.path.relpath(os.path.dirname(fn), OUT) + '/')
