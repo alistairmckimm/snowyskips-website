@@ -14,7 +14,7 @@ PAGES = list(mains)  # home, skip-bins, pricing, ...
 
 # FAQ link in the Customer Guide menu
 header = header.replace('Snowy Skips Skip Bin Guide</a>',
-    'Snowy Skips Skip Bin Guide</a><a href="#faq" style="display: block; padding: 8px 16px; color: #1f1f1f; text-decoration: none">Skip bin FAQs</a><a href="#skip-bin-permits" style="display: block; padding: 8px 16px; color: #1f1f1f; text-decoration: none">Council permits for skip bins</a><a href="#free-items" style="display: block; padding: 8px 16px; color: #1f1f1f; text-decoration: none">Free to a good home</a>', 1)
+    'Snowy Skips Skip Bin Guide</a><a href="#faq" style="display: block; padding: 8px 16px; color: #1f1f1f; text-decoration: none">Skip bin FAQs</a><a href="#skip-bin-permits" style="display: block; padding: 8px 16px; color: #1f1f1f; text-decoration: none">Council permits for skip bins</a><a href="#too-good-to-tip" style="display: block; padding: 8px 16px; color: #1f1f1f; text-decoration: none">Too Good to Tip Giveaways</a>', 1)
 footer = footer.replace('<a href="#landfill-costs" style="color: #e8e2d9">Landfill Costs</a>',
     '<a href="#landfill-costs" style="color: #e8e2d9">Landfill Costs</a><br><a href="#faq" style="color: #e8e2d9">FAQs</a>', 1)
 
@@ -178,11 +178,12 @@ for it in _items:
     _cards += f'''<article data-listed="{it['listed']}" style="border: 1px solid #e4e0d8; border-radius: 10px; overflow: hidden; background: #fff"><img src="/img/free/{it['photo']}" alt="{it['name']}" loading="lazy" style="width: 100%; aspect-ratio: 4 / 3; object-fit: cover; display: block"><div style="padding: 14px 16px"><h3 style="{HS}; font-size: 19px; margin: 0">{it['name']}</h3><p style="margin: 6px 0 0 0; font-size: 16px">{it.get('desc','')}</p><p style="margin: 8px 0 0 0; font-size: 14px; color: #666">Listed {_fmt(it['listed'])}</p></div></article>'''
 if not _cards:
     _cards = '<p style="font-size: 18px; margin: 0; grid-column: 1 / -1; background: #F5F2EC; border-radius: 10px; padding: 18px 20px">Nothing on the list right now. Check back soon, or follow us on Facebook for new items.</p>'
-mains['free-items'] = f'''<section style="background: #F5F2EC">
+mains['too-good-to-tip'] = f'''<section style="background: #F5F2EC">
 <div style="max-width: 1100px; margin: 0 auto; padding: 56px 24px">
-<div style="font-weight: 700; letter-spacing: 2px; font-size: 14px; color: #4F7230">FREE TO A GOOD HOME</div>
-<h1 style="{HS}; font-size: 42px; line-height: 1.1; margin: 10px 0 0 0">Good gear shouldn't go to landfill</h1>
-<p style="margin: 16px 0 0 0; font-size: 20px; max-width: 820px">When we pick up furniture, tools, building materials and other items that are still in good shape, we set them aside instead of tipping them. They're free for locals who need them. It keeps good things out of landfill and helps out in tough times.</p>
+<div style="font-weight: 700; letter-spacing: 2px; font-size: 14px; color: #4F7230">OUR COMMUNITY REUSE PROGRAM</div>
+<h1 style="{HS}; font-size: 42px; line-height: 1.1; margin: 10px 0 0 0">Too Good to Tip Giveaways</h1>
+<p style="margin: 8px 0 0 0; font-size: 22px; font-weight: 700; color: #4F7230">Free items for locals who need them</p>
+<p style="margin: 16px 0 0 0; font-size: 20px; max-width: 820px">When we pick up furniture, tools, building materials and other items that are still in good shape, we set them aside instead of tipping them and give them away free to locals who need them. It keeps good things out of landfill and helps out in tough times.</p>
 </div>
 </section>
 <section style="max-width: 1100px; margin: 0 auto; padding: 32px 24px 8px 24px">
@@ -216,7 +217,7 @@ mains['free-items'] = f'''<section style="background: #F5F2EC">
 <strong>Disclaimer.</strong> All items are second-hand and given away free, as is, with no warranty of any kind. We haven't inspected or tested them unless we say so. Electrical items are untested unless clearly marked otherwise: have them tested and tagged by a licensed electrician before you use them. You're responsible for checking an item is safe and suitable before you take it or use it, and for loading and transporting it safely. Snowy Skips and McKimm Civil Pty Ltd accept no liability for any loss, damage or injury arising from items taken, to the extent the law allows. We may refuse any request.
 </div>
 </section>'''
-PAGES.append('free-items')
+PAGES.append('too-good-to-tip')
 
 META = {
  'home': (None, None),
@@ -234,7 +235,7 @@ META = {
    'Snowy Skips is a locally owned skip bin, equipment and labour hire business at 8–10 Basalt Street, Berridale NSW. Call 0408 632 007 or email bookings@snowyskips.com.au.'),
  'skip-bin-guide': ('Skip Bin Guide | What Can Go in a Skip Bin | Snowy Skips',
    'What can and can\'t go in a skip bin, how to load it, how to avoid extra charges, and our hire conditions. The Snowy Skips Skip Bin Guide.'),
- 'free-items': ('Free to a Good Home | Reused Items | Snowy Skips',
+ 'too-good-to-tip': ('Too Good to Tip Giveaways | Free Reused Items | Snowy Skips',
    'Good-condition furniture, tools and materials we\'ve saved from landfill, free for Snowy Monaro locals who need them. See what\'s available and how to collect.'),
  'single-item-pickup': ('Single Item Pickup & Bulky Rubbish Removal | Snowy Monaro | Snowy Skips',
    'Fridge, mattress, couch or desk to go? Snowy Skips picks up single bulky items across the Snowy Monaro, generally $49 plus landfill when our trucks are in your area.'),
@@ -293,7 +294,7 @@ for pid in PAGES:
 towns = sorted(glob.glob(OUT + 'skip-bin-hire-*/index.html'))
 for fn in towns:
     s = open(fn).read()
-    s = s.replace('Snowy Skips Skip Bin Guide</a>', 'Snowy Skips Skip Bin Guide</a><a href="/faq/" style="display: block; padding: 8px 16px; color: #1f1f1f; text-decoration: none">Skip bin FAQs</a><a href="/skip-bin-permits/" style="display: block; padding: 8px 16px; color: #1f1f1f; text-decoration: none">Council permits for skip bins</a><a href="/free-items/" style="display: block; padding: 8px 16px; color: #1f1f1f; text-decoration: none">Free to a good home</a>', 1)
+    s = s.replace('Snowy Skips Skip Bin Guide</a>', 'Snowy Skips Skip Bin Guide</a><a href="/faq/" style="display: block; padding: 8px 16px; color: #1f1f1f; text-decoration: none">Skip bin FAQs</a><a href="/skip-bin-permits/" style="display: block; padding: 8px 16px; color: #1f1f1f; text-decoration: none">Council permits for skip bins</a><a href="/too-good-to-tip/" style="display: block; padding: 8px 16px; color: #1f1f1f; text-decoration: none">Too Good to Tip Giveaways</a>', 1)
     s = re.sub(r'href="/#([^"]*)"', lambda m: f'href="{target(m.group(1) or "home")}"', s)
     open(fn, 'w').write(s)
     urls.append(SITE + '/' + os.path.relpath(os.path.dirname(fn), OUT) + '/')
@@ -307,3 +308,7 @@ for fn in glob.glob(OUT + '**/index.html', recursive=True):
     left += [(fn, m) for m in re.findall(r'href="(/?#[^"]*)"', s) if not m.startswith('#')]
     assert 'src="img/' not in s, fn
 print(len(PAGES), 'section pages,', len(towns), 'town pages,', len(urls), 'urls; odd links:', left[:5])
+
+# old address for the giveaway page
+_os.makedirs(OUT + 'free-items', exist_ok=True)
+open(OUT + 'free-items/index.html','w').write('<!doctype html><meta charset="utf-8"><title>Too Good to Tip Giveaways</title><link rel="canonical" href="https://snowyskips.com.au/too-good-to-tip/"><meta http-equiv="refresh" content="0; url=/too-good-to-tip/"><a href="/too-good-to-tip/">Too Good to Tip Giveaways</a>')
