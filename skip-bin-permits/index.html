@@ -22,6 +22,7 @@ img{max-width:100%}
 @media (max-width:720px){
  h2{font-size:32px !important}
  header nav{order:3;width:100%;overflow-x:auto;flex-wrap:nowrap !important;white-space:nowrap}
+ header nav details.nav-guides > div{position:fixed !important;left:12px !important;right:12px !important;top:var(--dd-top,170px) !important;min-width:0 !important;max-height:70vh;overflow-y:auto;z-index:60 !important}
  section{padding-left:16px !important;padding-right:16px !important}
 }
 [id]{scroll-margin-top:150px}
@@ -48,7 +49,7 @@ img{max-width:100%}
 <a href="/skip-bins/" style="background: #4F7230; color: #ffffff; text-decoration: none; font-weight: 700; padding: 12px 20px; border-radius: 6px">Book a Skip</a>
 </div>
 </div>
-<script>(function(){var M=document.querySelectorAll("details.nav-guides");function shut(x){for(var i=0;i<M.length;i++){if(M[i]!==x)M[i].removeAttribute("open");}}for(var i=0;i<M.length;i++){M[i].addEventListener("toggle",function(){if(this.open)shut(this);});}document.addEventListener("click",function(e){var t=e.target;for(var i=0;i<M.length;i++){var d=M[i];if(d.open&&(!d.contains(t)||(t.closest&&t.closest("a"))))d.removeAttribute("open");}});document.addEventListener("keydown",function(e){if(e.key==="Escape")shut(null);});})();</script>
+<script>(function(){var M=document.querySelectorAll("details.nav-guides");function shut(x){for(var i=0;i<M.length;i++){if(M[i]!==x)M[i].removeAttribute("open");}}function place(d){var r=d.querySelector("summary").getBoundingClientRect();d.style.setProperty("--dd-top",Math.round(r.bottom+8)+"px");}for(var i=0;i<M.length;i++){M[i].addEventListener("toggle",function(){if(this.open){shut(this);place(this);}});}var nv=document.querySelector("header nav");if(nv)nv.addEventListener("scroll",function(){shut(null);},{passive:true});window.addEventListener("resize",function(){for(var i=0;i<M.length;i++)if(M[i].open)place(M[i]);});window.addEventListener("scroll",function(){for(var i=0;i<M.length;i++)if(M[i].open)place(M[i]);},{passive:true});document.addEventListener("click",function(e){var t=e.target;for(var i=0;i<M.length;i++){var d=M[i];if(d.open&&(!d.contains(t)||(t.closest&&t.closest("a"))))d.removeAttribute("open");}});document.addEventListener("keydown",function(e){if(e.key==="Escape")shut(null);});})();</script>
 </header>
 <main class="page active" id="page-skip-bin-permits">
 <section style="background: #F5F2EC">
