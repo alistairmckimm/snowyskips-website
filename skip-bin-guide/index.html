@@ -24,6 +24,13 @@ img{max-width:100%}
  header nav{order:3;width:100%;overflow-x:auto;flex-wrap:nowrap !important;white-space:nowrap}
  header nav details.nav-guides > div{position:fixed !important;left:12px !important;right:12px !important;top:var(--dd-top,170px) !important;min-width:0 !important;max-height:70vh;overflow-y:auto;z-index:60 !important}
  section{padding-left:16px !important;padding-right:16px !important}
+ table.lf-table thead{display:none}
+ table.lf-table caption{display:block;width:100%;font-size:22px !important;line-height:1.25}
+ table.lf-table,table.lf-table tbody{display:block;width:100%}
+ table.lf-table tr{display:grid;grid-template-columns:112px 1fr;column-gap:14px;align-items:start;padding:14px 12px}
+ table.lf-table th[scope=row]{grid-row:1 / span 3;padding:0 !important;min-width:0 !important;font-size:15px}
+ table.lf-table td{padding:2px 0 !important;text-align:left !important}
+ table.lf-table td::before{content:attr(data-label) ': ';font-weight:600;color:#555555;font-family:inherit;font-size:15px}
 }
 [id]{scroll-margin-top:150px}
 </style>
@@ -67,7 +74,7 @@ img{max-width:100%}
 
 <section style="max-width: 1240px; margin: 0 auto; padding: 40px 24px 8px 24px">
 <h3 id="guide-never" style="font-family: 'Sora', sans-serif; font-weight: 800; font-size: 30px; color: #52372A; margin: 0">Never in a skip bin</h3>
-<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 20px; margin-top: 18px">
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr)); gap: 20px; margin-top: 18px">
 <div style="border-top: 6px solid #B03024; background: #FBEDEB; border-radius: 10px; padding: 22px"><h4 style="font-family: 'Sora', sans-serif; font-weight: 700; font-size: 20px; color: #52372A; margin: 0">Asbestos — never, under any circumstances</h4><p style="margin: 10px 0 0 0; font-size: 17px">It must be removed by a licensed removalist. Homes built or renovated before about 1990 can contain asbestos (fibro sheets, cement roofing and eaves, some vinyl floor backing). It was banned in Australia in 2003. If you think a material might contain it, stop work, don't break, drill or sand it, and get it assessed. <a href="https://www.safeworkaustralia.gov.au/safety-topic/hazards/asbestos" target="_blank" rel="noopener">Safe Work Australia: asbestos</a>.</p></div>
 <div style="border-top: 6px solid #B03024; background: #FBEDEB; border-radius: 10px; padding: 22px"><h4 style="font-family: 'Sora', sans-serif; font-weight: 700; font-size: 20px; color: #52372A; margin: 0">Also never</h4><ul style="margin: 10px 0 0 0; padding-left: 20px; font-size: 17px"><li style="margin-bottom: 6px">Liquids and sludge</li><li style="margin-bottom: 6px">Food waste</li><li style="margin-bottom: 6px">Medical waste and sharps</li><li style="margin-bottom: 6px">Animal carcasses</li></ul><p style="margin: 10px 0 0 0; font-size: 15px;color:#555555">Please contact us and we can guide you in the right direction to have these correctly and lawfully serviced.</p></div>
 </div>
@@ -76,7 +83,7 @@ img{max-width:100%}
 <section style="max-width: 1240px; margin: 0 auto; padding: 40px 24px 8px 24px">
 <h3 style="font-family: 'Sora', sans-serif; font-weight: 800; font-size: 30px; color: #52372A; margin: 0">Ask us first — we can often help</h3>
 <p style="margin: 10px 0 0 0; font-size: 18px">Not allowed in your bin unless you've asked us first. We can dispose of them, but we'll tell you how to do it safely.</p>
-<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-top: 18px">
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr)); gap: 20px; margin-top: 18px">
 <div style="border-top: 6px solid #D98B4A; background: #F5F2EC; border-radius: 10px; padding: 22px"><h4 style="font-family: 'Sora', sans-serif; font-weight: 700; font-size: 20px; color: #52372A; margin: 0">Ask first</h4><ul style="margin: 10px 0 0 0; padding-left: 20px; font-size: 17px"><li style="margin-bottom: 6px">Lithium and other batteries</li><li style="margin-bottom: 6px">Tyres</li><li style="margin-bottom: 6px">Paint</li><li style="margin-bottom: 6px">Gas bottles and fire extinguishers</li><li style="margin-bottom: 6px">Chemicals, solvents, fuel and oils</li></ul></div>
 <div style="border-top: 6px solid #D98B4A; background: #F5F2EC; border-radius: 10px; padding: 22px"><h4 style="font-family: 'Sora', sans-serif; font-weight: 700; font-size: 20px; color: #52372A; margin: 0">Lithium batteries start fires</h4><p style="margin: 10px 0 0 0; font-size: 17px">Power tools, e-bikes and scooters, vapes, phones, laptops, solar and home batteries can all contain lithium. If one is crushed or damaged it can ignite in the bin, in the truck or at the landfill, putting drivers, landfill staff and your neighbours at risk. Take batteries out of tools and devices, don't load them without asking, and we'll tell you how to dispose of them safely.</p></div>
 <div style="border-top: 6px solid #D98B4A; background: #F5F2EC; border-radius: 10px; padding: 22px"><h4 style="font-family: 'Sora', sans-serif; font-weight: 700; font-size: 20px; color: #52372A; margin: 0">Example: two old tyres</h4><p style="margin: 10px 0 0 0; font-size: 17px">Just ask. We'll usually ask you to place them on top of the load so we can separate them at the landfill. Extra charges may apply.</p><p style="margin: 10px 0 0 0; font-size: 15px;color:#555555">Prefer to drop off household paint, gas bottles, batteries or oils yourself? The Community Recycling Centre at the Cooma or Jindabyne landfill takes up to 20 kg or 20 L per container.</p></div>
@@ -85,7 +92,7 @@ img{max-width:100%}
 
 <section style="max-width: 1240px; margin: 0 auto; padding: 40px 24px 8px 24px">
 <h3 style="font-family: 'Sora', sans-serif; font-weight: 800; font-size: 30px; color: #52372A; margin: 0">Some extra charge items</h3>
-<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-top: 18px">
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr)); gap: 20px; margin-top: 18px">
 <div style="border-top: 6px solid #52372A; background: #F5F2EC; border-radius: 10px; padding: 22px"><h4 style="font-family: 'Sora', sans-serif; font-weight: 700; font-size: 20px; color: #52372A; margin: 0">Mattresses</h4><p style="margin: 10px 0 0 0; font-size: 17px">Extra cost per mattress. Place them on top of the bin when you finish loading.</p></div>
 <div style="border-top: 6px solid #52372A; background: #F5F2EC; border-radius: 10px; padding: 22px"><h4 style="font-family: 'Sora', sans-serif; font-weight: 700; font-size: 20px; color: #52372A; margin: 0">Fridges, freezers, air-con</h4><p style="margin: 10px 0 0 0; font-size: 17px">Ask us first. The gas must be removed by a licensed person.</p></div>
 <div style="border-top: 6px solid #52372A; background: #F5F2EC; border-radius: 10px; padding: 22px"><h4 style="font-family: 'Sora', sans-serif; font-weight: 700; font-size: 20px; color: #52372A; margin: 0">TVs and electronics</h4><p style="margin: 10px 0 0 0; font-size: 17px">Ask us first.</p></div>
@@ -95,7 +102,7 @@ img{max-width:100%}
 
 <section style="max-width: 1240px; margin: 0 auto; padding: 40px 24px 8px 24px">
 <h3 style="font-family: 'Sora', sans-serif; font-weight: 800; font-size: 30px; color: #52372A; margin: 0">What goes where</h3>
-<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(380px, 1fr)); gap: 20px; margin-top: 18px">
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(380px, 100%), 1fr)); gap: 20px; margin-top: 18px">
 <div style="border-top: 6px solid #4F7230; background: #F5F2EC; border-radius: 10px; padding: 22px"><h4 style="font-family: 'Sora', sans-serif; font-weight: 700; font-size: 20px; color: #52372A; margin: 0">Goes in the general bin</h4><ul style="margin: 10px 0 0 0; padding-left: 20px; font-size: 17px"><li style="margin-bottom: 6px">Household clean-outs: furniture, toys, clothing, general junk</li><li style="margin-bottom: 6px">Renovation waste: timber, plasterboard, carpet and underlay, fittings, laminate, small amounts of tiles and ceramics</li><li style="margin-bottom: 6px">Builders' general waste: offcuts, insulation, plastics, packaging that isn't cardboard</li><li style="margin-bottom: 6px">Break furniture down and flatten what you can, so more fits</li></ul></div>
 <div style="border-top: 6px solid #7FA9CF; background: #F5F2EC; border-radius: 10px; padding: 22px"><h4 style="font-family: 'Sora', sans-serif; font-weight: 700; font-size: 20px; color: #52372A; margin: 0">Keep separate</h4><ul style="margin: 10px 0 0 0; padding-left: 20px; font-size: 17px"><li style="margin-bottom: 6px"><strong>Steel and scrap metal:</strong> order a separate steel bin, or lay pieces neatly on top of the load</li><li style="margin-bottom: 6px"><strong>Cardboard:</strong> flatten it and keep it out of the general bin. Ask about a recycling bin</li><li style="margin-bottom: 6px"><strong>Green waste:</strong> its own green waste bin, with no rubbish or treated timber. Or ask us about hiring a tree chipper</li><li style="margin-bottom: 6px"><strong>Concrete, bricks and soil:</strong> very heavy. Ask us about a dedicated bin. Soil is classed as waste — <a href='#soil-venm'>see how we handle soil and VENM</a></li></ul></div>
 </div>
@@ -104,7 +111,7 @@ img{max-width:100%}
 
 <section style="max-width: 1240px; margin: 0 auto; padding: 40px 24px 8px 24px">
 <h3 style="font-family: 'Sora', sans-serif; font-weight: 800; font-size: 30px; color: #52372A; margin: 0">Best practice: load it right</h3>
-<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(380px, 1fr)); gap: 8px 40px; margin-top: 12px">
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(380px, 100%), 1fr)); gap: 8px 40px; margin-top: 12px">
 <ul style="margin: 10px 0 0 0; padding-left: 20px; font-size: 18px"><li style="margin-bottom: 6px">Tell us what's going in when you order, so we can suggest the right bin.</li><li style="margin-bottom: 6px">Heavy items first on the bottom, light items on top. Spread the weight evenly.</li><li style="margin-bottom: 6px"><strong>Stay level with or below the top edge.</strong> Nothing should stick out. An overloaded bin can't be lifted or driven safely.</li><li style="margin-bottom: 6px">Putting things on top: steel can go neatly on top of the load. Cardboard and small amounts of concrete or green waste can too, but only if Snowy Skips has approved it first.</li><li style="margin-bottom: 6px">Keep others from loading your bin. We also hire temporary fencing, portable toilets and other <a href='#site-establishment'>site establishment</a> equipment.</li></ul>
 <ul style="margin: 10px 0 0 0; padding-left: 20px; font-size: 18px"><li style="margin-bottom: 6px">Break things down: flatten boxes, take doors off, cut up timber. You'll fit more in.</li><li style="margin-bottom: 6px">Lift safely: wear gloves and sturdy boots, and get help with heavy items. <a href='https://www.safeworkaustralia.gov.au/safety-topic/hazards/manual-tasks' target='_blank' rel='noopener'>Safe Work Australia: manual tasks</a>.</li><li style="margin-bottom: 6px">Clear drop-off spot on firm, level ground with no low wires. On the road or footpath? A council permit is usually required.</li><li style="margin-bottom: 6px">Sensitive areas: you must tell us if the bin or truck has to be driven over or placed on a sensitive area, such as grass or finished surfaces. We'll work with you on precautions to avoid damage and find the best option.</li></ul>
 </div>

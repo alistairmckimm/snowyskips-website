@@ -24,6 +24,13 @@ img{max-width:100%}
  header nav{order:3;width:100%;overflow-x:auto;flex-wrap:nowrap !important;white-space:nowrap}
  header nav details.nav-guides > div{position:fixed !important;left:12px !important;right:12px !important;top:var(--dd-top,170px) !important;min-width:0 !important;max-height:70vh;overflow-y:auto;z-index:60 !important}
  section{padding-left:16px !important;padding-right:16px !important}
+ table.lf-table thead{display:none}
+ table.lf-table caption{display:block;width:100%;font-size:22px !important;line-height:1.25}
+ table.lf-table,table.lf-table tbody{display:block;width:100%}
+ table.lf-table tr{display:grid;grid-template-columns:112px 1fr;column-gap:14px;align-items:start;padding:14px 12px}
+ table.lf-table th[scope=row]{grid-row:1 / span 3;padding:0 !important;min-width:0 !important;font-size:15px}
+ table.lf-table td{padding:2px 0 !important;text-align:left !important}
+ table.lf-table td::before{content:attr(data-label) ': ';font-weight:600;color:#555555;font-family:inherit;font-size:15px}
 }
 [id]{scroll-margin-top:150px}
 </style>
@@ -65,7 +72,7 @@ img{max-width:100%}
 </div>
 </section>
 <section style="max-width: 1240px; margin: 0 auto; padding: 56px 24px">
-<h3 style="font-family: 'Sora', sans-serif; font-weight: 800; font-size: 32px; color: #52372A; margin: 0">What our crew can do</h3><div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-top: 24px">
+<h3 style="font-family: 'Sora', sans-serif; font-weight: 800; font-size: 32px; color: #52372A; margin: 0">What our crew can do</h3><div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr)); gap: 20px; margin-top: 24px">
 <div style="border-top: 6px solid #4F7230; background: #F5F2EC; border-radius: 10px; padding: 22px">
 <h4 style="font-family: 'Sora', sans-serif; font-weight: 700; font-size: 20px; color: #52372A; margin: 0">Loading and clean-ups</h4>
 <ul style="margin: 10px 0 0 0; padding-left: 20px; font-size: 17px"><li>Loading your skip bin</li><li>Site and yard clean-ups</li><li>Household, estate and rental clear-outs</li><li>Cleaning of the premises once it's cleared</li><li>Rubbish removal with bin and machine</li></ul><p style="margin: 10px 0 0 0; font-size: 15px; color: #555555">Send us a few clear photos and we can generally quote the whole job — bin, crew and machine.</p>
