@@ -490,3 +490,16 @@ print(len(PAGES), 'section pages,', len(towns), 'town pages,', len(urls), 'urls;
 # old address for the giveaway page
 _os.makedirs(OUT + 'free-items', exist_ok=True)
 open(OUT + 'free-items/index.html','w').write('<!doctype html><meta charset="utf-8"><title>Too Good to Tip Giveaways</title><link rel="canonical" href="https://snowyskips.com.au/too-good-to-tip/"><meta http-equiv="refresh" content="0; url=/too-good-to-tip/"><a href="/too-good-to-tip/">Too Good to Tip Giveaways</a>')
+
+# ---------- "Text us photos" buttons (Al 25 Nov: quotes by text with photos + location) ----------
+_SMS = 'sms:0408632007?&amp;body=' + 'Hi%20Snowy%20Skips%2C%20here%20are%20some%20photos%20for%20a%20quote.%20Location%3A%20'
+_HDR_OLD = '<a href="tel:0408632007" style="font-family: \'Sora\', sans-serif; font-weight: 700; color: #52372A; text-decoration: none; font-size: 18px">0408 632 007</a>'
+_HDR_NEW = _HDR_OLD + f'<a href="{_SMS}" title="Text photos and your location to 0408 632 007" style="color: #52372A; text-decoration: none; font-weight: 700; padding: 10px 16px; border-radius: 6px; border: 2px solid #52372A">Text us photos</a>'
+_BTN = f'<a href="{_SMS}" title="Text photos and your location to 0408 632 007" style="background: #fff; color: #52372A; text-decoration: none; font-weight: 700; padding: 12px 20px; border-radius: 8px; border: 2px solid #52372A">Text photos for a quote</a>'
+for fn in glob.glob(OUT + '**/index.html', recursive=True):
+    s = open(fn).read(); s0 = s
+    if 'sms:0408632007' not in s:
+        s = s.replace(_HDR_OLD, _HDR_NEW, 1)
+        s = re.sub(r'(>(?:Get a quote|Request a quote)</a>(?:<a href="tel:[^"]*"[^>]*>[^<]*</a>)?)(\s*</div>)', lambda m: m.group(1) + _BTN + m.group(2), s)
+    if s != s0: open(fn, 'w').write(s)
+print('text-photo buttons added')
