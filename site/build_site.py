@@ -134,6 +134,10 @@ if LIVE:
     doc = doc.replace('</head>', '<script type="application/ld+json">'+_j.dumps(_ld)+'</script>\n</head>',1)
     _fl='<div style="max-width: 1240px; margin: 0 auto; padding: 0 24px 24px 24px; font-size: 14px; line-height: 1.8; color: #cfc4b8"><strong style="color: #e8e2d9">Skip bin hire &amp; rubbish removal:</strong> ' + ' · '.join(f'<a href="/skip-bin-hire-{_slug(t)}/" style="color: #cfc4b8">{t}</a>' for t,_ in _ALL) + '</div>\n</footer>'
     _i=doc.rindex('</footer>'); doc=doc[:_i]+_fl+doc[_i+len('</footer>'):]
+    # Christmas hours banner hides itself from Mon 4 Jan 2027 (Sydney time), even if nobody rebuilds the site.
+    if 'id="christmas-hours"' in doc:
+        _ci=doc.index('id="christmas-hours"'); _ce=doc.index('</section>',_ci)+len('</section>')
+        doc=doc[:_ce]+'\n<script>if(Date.now()>=Date.parse("2027-01-04T00:00:00+11:00")){var _xb=document.getElementById("christmas-hours");if(_xb)_xb.remove();}</script>'+doc[_ce:]
 
 LIVE_JS = "b.addEventListener('click',function(){ var NL=String.fromCharCode(10); var v=[].slice.call(f.querySelectorAll('input:not([type=file]),select,textarea')).map(function(e){ var l=e.closest('label'); return (l?l.firstChild.textContent.trim():'')+': '+e.value; }); var nm=f.querySelector('input[type=text]'); var sub='Quote request'+(nm&&nm.value?' - '+nm.value:''); location.href='mailto:bookings@snowyskips.com.au?subject='+encodeURIComponent(sub)+'&body='+encodeURIComponent(v.join(NL)+NL+NL+'(Attach photos of what is going here.)'); b.textContent='Your email app should open with the details - attach photos and press send.'; });"
 
