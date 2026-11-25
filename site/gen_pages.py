@@ -14,7 +14,7 @@ PAGES = list(mains)  # home, skip-bins, pricing, ...
 
 # FAQ link in the Customer Guide menu
 header = header.replace('Snowy Skips Skip Bin Guide</a>',
-    'Snowy Skips Skip Bin Guide</a><a href="#faq" style="display: block; padding: 8px 16px; color: #1f1f1f; text-decoration: none">Skip bin FAQs</a><a href="#skip-bin-permits" style="display: block; padding: 8px 16px; color: #1f1f1f; text-decoration: none">Council permits for skip bins</a><a href="#too-good-to-tip" style="display: block; padding: 8px 16px; color: #1f1f1f; text-decoration: none">Too Good to Tip Giveaways</a><a href="#safe-loading" style="display: block; padding: 8px 16px; color: #1f1f1f; text-decoration: none">Loading your bin safely</a>', 1)
+    'Snowy Skips Skip Bin Guide</a><a href="#faq" style="display: block; padding: 8px 16px; color: #1f1f1f; text-decoration: none">Skip bin FAQs</a><a href="#skip-bin-permits" style="display: block; padding: 8px 16px; color: #1f1f1f; text-decoration: none">Council permits for skip bins</a><a href="#too-good-to-tip" style="display: block; padding: 8px 16px; color: #1f1f1f; text-decoration: none">Too Good to Tip Giveaways</a><a href="#safe-loading" style="display: block; padding: 8px 16px; color: #1f1f1f; text-decoration: none">Loading your bin safely</a><a href="#illegal-dumping" style="display: block; padding: 8px 16px; color: #B03024; font-weight: 600; text-decoration: none">Report illegal dumping</a>', 1)
 # Labour Hire dropdown (labour hire, insurance & accident clean-ups, single item pickups)
 def _labour_menu(pre):
     a = 'display: block; padding: 8px 16px; color: #1f1f1f; text-decoration: none'
@@ -32,7 +32,7 @@ header = header.replace(_LH, _labour_menu(''), 1)
 _FL = '<a href="#labour-hire" style="color: #e8e2d9">Labour Hire</a>'
 if _FL in footer: footer = footer.replace(_FL, _FL + '<br><a href="#insurance-accident-clean-ups" style="color: #e8e2d9">Insurance &amp; accident clean-ups</a><br><a href="#farm-commercial-clean-ups" style="color: #e8e2d9">Farm &amp; commercial clean-ups</a><br><a href="#concrete-removal" style="color: #e8e2d9">Concrete removal</a><br><a href="#deceased-estate-clean-outs" style="color: #e8e2d9">Deceased estate clean-outs</a>', 1)
 footer = footer.replace('<a href="#landfill-costs" style="color: #e8e2d9">Landfill Costs</a>',
-    '<a href="#landfill-costs" style="color: #e8e2d9">Landfill Costs</a><br><a href="#faq" style="color: #e8e2d9">FAQs</a>', 1)
+    '<a href="#landfill-costs" style="color: #e8e2d9">Landfill Costs</a><br><a href="#faq" style="color: #e8e2d9">FAQs</a><br><a href="#illegal-dumping" style="color: #e8e2d9">Report illegal dumping</a>', 1)
 
 # ---------- FAQ ----------
 FAQ = [
@@ -443,7 +443,59 @@ mains['safe-loading'] = f'''<section style="background: #F5F2EC">
 </section>'''
 PAGES.append('safe-loading')
 
+# ---------- illegal-dumping (education + report hotlines) ----------
+mains['illegal-dumping'] = f'''<section style="background: #F5F2EC">
+<div style="max-width: 860px; margin: 0 auto; padding: 56px 24px">
+<div style="font-weight: 700; letter-spacing: 2px; font-size: 14px; color: #4F7230">DOB IN A DUMPER</div>
+<h1 style="{HS}; font-size: 42px; line-height: 1.1; margin: 10px 0 0 0">Stop illegal dumping</h1>
+<p style="margin: 16px 0 0 0; font-size: 20px">Illegal dumping costs ratepayers, spoils our bush, rivers and roadsides, and gives the whole waste industry a bad name. If you see it, report it. And before you pay anyone to take your rubbish away, make sure you know where it's going.</p>
+<div style="display: flex; flex-wrap: wrap; gap: 12px; margin-top: 24px"><a href="#report" style="background: #B03024; color: #ffffff; text-decoration: none; font-weight: 700; padding: 14px 22px; border-radius: 8px">Report illegal dumping</a><a href="#choose" style="background: #ffffff; color: #52372A; text-decoration: none; font-weight: 700; padding: 12px 20px; border-radius: 8px; border: 2px solid #52372A">How to pick an honest operator</a></div>
+</div>
+</section>
+<section style="max-width: 860px; margin: 0 auto; padding: 8px 24px 56px 24px">
+<h2 id="report" style="{H2}">Report illegal dumping</h2>
+<p style="{P}">Seen someone dumping, or found a pile of waste where it shouldn't be? Don't approach anyone and don't touch the waste. If it's safe, note the date, time and exact location, the type of waste, and any vehicle details or number plate, and take photos. Then report it:</p>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(250px, 100%), 1fr)); gap: 14px; margin-top: 16px">
+<div style="background: #ffffff; border: 1px solid #e4e0d8; border-radius: 10px; padding: 18px 20px"><strong style="color: #B03024; font-size: 18px">Emergency</strong><p style="margin: 6px 0 0 0">Toxic fumes or a large chemical spill: call <a href="tel:000" style="font-weight: 700">000</a> straight away.</p></div>
+<div style="background: #ffffff; border: 1px solid #e4e0d8; border-radius: 10px; padding: 18px 20px"><strong style="color: #52372A; font-size: 18px">NSW EPA Environment Line</strong><p style="margin: 6px 0 0 0"><a href="tel:131555" style="font-weight: 700; font-size: 20px">131 555</a><br>For dumping that's an immediate threat to people or the environment, such as asbestos or chemicals.</p></div>
+<div style="background: #ffffff; border: 1px solid #e4e0d8; border-radius: 10px; padding: 18px 20px"><strong style="color: #52372A; font-size: 18px">RIDonline (NSW)</strong><p style="margin: 6px 0 0 0">For all other dumped waste, report it online with photos and the location. Councils and the EPA use it to clean up, find dumpers and target hot spots.<br><a href="https://ridonline.epa.nsw.gov.au/" target="_blank" rel="noopener" style="font-weight: 700">ridonline.epa.nsw.gov.au →</a></p></div>
+<div style="background: #ffffff; border: 1px solid #e4e0d8; border-radius: 10px; padding: 18px 20px"><strong style="color: #52372A; font-size: 18px">Snowy Monaro Regional Council</strong><p style="margin: 6px 0 0 0"><a href="tel:1300345345" style="font-weight: 700; font-size: 20px">1300 345 345</a><br><a href="mailto:council@snowymonaro.nsw.gov.au" style="overflow-wrap: anywhere">council@snowymonaro.nsw.gov.au</a></p></div>
+<div style="background: #ffffff; border: 1px solid #e4e0d8; border-radius: 10px; padding: 18px 20px"><strong style="color: #52372A; font-size: 18px">In Victoria (Corryong, Walwa and surrounds)</strong><p style="margin: 6px 0 0 0">EPA Victoria 24-hour hotline <a href="tel:1300372842" style="font-weight: 700; font-size: 20px">1300 372 842</a>, or <a href="https://www.epa.vic.gov.au/report-illegal-waste-dumping" target="_blank" rel="noopener" style="font-weight: 700">report online →</a></p></div>
+<div style="background: #ffffff; border: 1px solid #e4e0d8; border-radius: 10px; padding: 18px 20px"><strong style="color: #52372A; font-size: 18px">Tell us too</strong><p style="margin: 6px 0 0 0">If you think a skip bin or rubbish removal operator is involved, report it to the EPA, then let us know on <a href="tel:0408632007" style="font-weight: 700">0408 632 007</a>. We'll help however we can.</p></div>
+</div>
+
+<h2 style="{H2}">Why this matters to us</h2>
+<p style="{P}">Across the waste industry, and especially in the cities, a small number of operators have given everyone a bad name. Instead of paying to dispose of waste properly, they dump it on roadsides, in the bush or on someone's farm, and pocket the difference. Honest operators get undercut, councils and ratepayers pay for the clean-up, and the damage to land and waterways can last for years.</p>
+<p style="{P}">Regulators are cracking down. In 2026 EPA Victoria started a snap inspection blitz on skip bin operators, and in an earlier blitz in Victoria's south-west, more than half the sites inspected didn't have the required EPA permissions to operate (<a href="https://www.epa.vic.gov.au/epa-targets-skip-bin-operators-statewide-compliance-blitz" target="_blank" rel="noopener">EPA Victoria</a>). EPA Victoria also urges people to keep an eye on where their skip bin loads of renovation waste and hard rubbish end up.</p>
+
+<h2 style="{H2}">You can be on the hook too</h2>
+<p style="{P}">In NSW, if your waste is taken somewhere it can't lawfully go, it isn't only the driver who is in trouble. Under the law, the owner of the waste, the owner of the vehicle and the transporter can each be guilty of an offence (<a href="https://www.epa.nsw.gov.au/your-environment/waste/transporting-waste" target="_blank" rel="noopener">NSW EPA</a>). That's why it pays to know exactly where your rubbish is going.</p>
+
+<h2 id="choose" style="{H2}">How to pick an honest operator</h2>
+<ul style="margin: 12px 0 0 0; padding-left: 22px; font-size: 18px; line-height: 1.7">
+<li><strong>Ask where your waste is going,</strong> and expect a straight answer: a named landfill, transfer station or recycler.</li>
+<li><strong>Ask for the weighbridge docket</strong> or a disposal record for your load.</li>
+<li><strong>Be wary of prices that seem too good to be true.</strong> Landfill fees are real costs. If a quote looks too cheap to cover them, ask how.</li>
+<li><strong>Check they're a real business:</strong> an ABN, a physical address and a landline or a name you can call back.</li>
+<li><strong>Watch out for cash-only, no-paperwork deals</strong> and operators who turn up in unmarked trailers.</li>
+</ul>
+
+<h2 style="{H2}">How we do it</h2>
+<p style="{P}">We want to help lift the standard of the industry, starting with full transparency on every load.</p>
+<ul style="margin: 12px 0 0 0; padding-left: 22px; font-size: 18px; line-height: 1.7">
+<li><strong>Every load goes to a proper disposal facility,</strong> and recyclables like scrap steel, green waste and concrete go where they can be reused.</li>
+<li><strong>Every load is weighed at the landfill,</strong> and you get the docket. Landfill is charged at cost from that docket, so there's no reason to cut corners. <a href="#landfill-costs">See how we charge</a>.</li>
+<li><strong>Every load is recorded in our own waste tracking system:</strong> tonnes by waste type, where it went, and date- and time-stamped photos. Builders and project managers can get the records they need for their reporting.</li>
+<li><strong>The same safety, quality and environmental systems</strong> we use on our McKimm Civil construction sites run every Snowy Skips job.</li>
+</ul>
+<p style="{P}">If you're ever unsure about who's taking your waste, give us a call. We're happy to explain how it should be done, even if you don't book with us.</p>
+<div style="display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px"><a href="tel:0408632007" style="background: #4F7230; color: #fff; text-decoration: none; font-weight: 700; padding: 14px 22px; border-radius: 8px">Call 0408 632 007</a><a href="#contact" style="background: #fff; color: #52372A; text-decoration: none; font-weight: 700; padding: 12px 20px; border-radius: 8px; border: 2px solid #52372A">Get a quote</a></div>
+</section>'''
+PAGES.append('illegal-dumping')
+
 META = {
+ 'illegal-dumping': ('Report Illegal Dumping | Dob in a Dumper | Snowy Monaro | Snowy Skips',
+   'How to report illegal dumping in the Snowy Monaro: NSW EPA 131 555, RIDonline, council 1300 345 345 and EPA Victoria 1300 372 842. Plus how to pick an honest waste operator and how we track every load.'),
  'safe-loading': ('Loading Your Skip Bin Safely | Safety Checklist & Manual Handling | Snowy Skips',
    'A simple safety checklist for loading your own skip bin: the right gear, safe lifting and manual handling, loading level, heavy waste and what can\'t go in. From Snowy Skips, Snowy Monaro.'),
  'home': (None, None),
@@ -528,7 +580,7 @@ for pid in PAGES:
 towns = sorted(glob.glob(OUT + 'skip-bin-hire-*/index.html'))
 for fn in towns:
     s = open(fn).read()
-    s = s.replace('Snowy Skips Skip Bin Guide</a>', 'Snowy Skips Skip Bin Guide</a><a href="/faq/" style="display: block; padding: 8px 16px; color: #1f1f1f; text-decoration: none">Skip bin FAQs</a><a href="/skip-bin-permits/" style="display: block; padding: 8px 16px; color: #1f1f1f; text-decoration: none">Council permits for skip bins</a><a href="/too-good-to-tip/" style="display: block; padding: 8px 16px; color: #1f1f1f; text-decoration: none">Too Good to Tip Giveaways</a><a href="/safe-loading/" style="display: block; padding: 8px 16px; color: #1f1f1f; text-decoration: none">Loading your bin safely</a>', 1)
+    s = s.replace('Snowy Skips Skip Bin Guide</a>', 'Snowy Skips Skip Bin Guide</a><a href="/faq/" style="display: block; padding: 8px 16px; color: #1f1f1f; text-decoration: none">Skip bin FAQs</a><a href="/skip-bin-permits/" style="display: block; padding: 8px 16px; color: #1f1f1f; text-decoration: none">Council permits for skip bins</a><a href="/too-good-to-tip/" style="display: block; padding: 8px 16px; color: #1f1f1f; text-decoration: none">Too Good to Tip Giveaways</a><a href="/safe-loading/" style="display: block; padding: 8px 16px; color: #1f1f1f; text-decoration: none">Loading your bin safely</a><a href="/illegal-dumping/" style="display: block; padding: 8px 16px; color: #B03024; font-weight: 600; text-decoration: none">Report illegal dumping</a>', 1)
     s = s.replace(_LH.replace('href="#', 'href="/#'), _labour_menu('/'), 1)
     s = re.sub(r'href="/#([^"]*)"', lambda m: f'href="{target(m.group(1) or "home")}"', s)
     open(fn, 'w').write(s)
