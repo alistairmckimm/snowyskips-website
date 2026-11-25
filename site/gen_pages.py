@@ -14,7 +14,7 @@ PAGES = list(mains)  # home, skip-bins, pricing, ...
 
 # FAQ link in the Customer Guide menu
 header = header.replace('Snowy Skips Skip Bin Guide</a>',
-    'Snowy Skips Skip Bin Guide</a><a href="#faq" style="display: block; padding: 8px 16px; color: #1f1f1f; text-decoration: none">Skip bin FAQs</a><a href="#skip-bin-permits" style="display: block; padding: 8px 16px; color: #1f1f1f; text-decoration: none">Council permits for skip bins</a><a href="#too-good-to-tip" style="display: block; padding: 8px 16px; color: #1f1f1f; text-decoration: none">Too Good to Tip Giveaways</a>', 1)
+    'Snowy Skips Skip Bin Guide</a><a href="#faq" style="display: block; padding: 8px 16px; color: #1f1f1f; text-decoration: none">Skip bin FAQs</a><a href="#skip-bin-permits" style="display: block; padding: 8px 16px; color: #1f1f1f; text-decoration: none">Council permits for skip bins</a><a href="#too-good-to-tip" style="display: block; padding: 8px 16px; color: #1f1f1f; text-decoration: none">Too Good to Tip Giveaways</a><a href="#safe-loading" style="display: block; padding: 8px 16px; color: #1f1f1f; text-decoration: none">Loading your bin safely</a>', 1)
 # Labour Hire dropdown (labour hire, insurance & accident clean-ups, single item pickups)
 def _labour_menu(pre):
     a = 'display: block; padding: 8px 16px; color: #1f1f1f; text-decoration: none'
@@ -388,7 +388,63 @@ mains['too-good-to-tip'] = f'''<section style="background: #F5F2EC">
 </section>'''
 PAGES.append('too-good-to-tip')
 
+# ---------- safe-loading (customer education SOP) ----------
+mains['safe-loading'] = f'''<section style="background: #F5F2EC">
+<div style="max-width: 860px; margin: 0 auto; padding: 56px 24px">
+<div style="font-weight: 700; letter-spacing: 2px; font-size: 14px; color: #4F7230">SKIP BIN GUIDE</div>
+<h1 style="{HS}; font-size: 42px; line-height: 1.1; margin: 10px 0 0 0">Loading your skip bin safely</h1>
+<p style="margin: 16px 0 0 0; font-size: 20px">Loading a bin is hard physical work. A few minutes of planning can save you a sore back, a cut hand or an overweight bin. Here's a simple safety checklist for anyone loading their own bin.</p>
+<div style="display: flex; flex-wrap: wrap; gap: 12px; margin-top: 24px"><button type="button" onclick="window.print()" style="background: #fff; color: #52372A; font: inherit; font-weight: 700; padding: 12px 20px; border-radius: 8px; border: 2px solid #52372A; cursor: pointer">Print this checklist</button></div>
+</div>
+</section>
+<section style="max-width: 860px; margin: 0 auto; padding: 8px 24px 56px 24px">
+<h2 style="{H2}">1. Before you start</h2>
+<ul style="margin: 12px 0 0 0; padding-left: 22px; font-size: 18px; line-height: 1.7">
+<li><strong>Wear the right gear:</strong> sturdy closed-in shoes or boots, gloves, long sleeves and long pants. Add safety glasses when you're breaking things up, and a P2 dust mask for dusty jobs like plaster, insulation or old carpet.</li>
+<li><strong>Keep kids and pets away</strong> from the bin and the work area. Never let children play in or around a skip bin.</li>
+<li><strong>Clear a path</strong> from your pile to the bin: no hoses, loose boards or trip hazards, and watch for wet, icy or uneven ground.</li>
+<li><strong>Check the weather.</strong> On hot days start early, take breaks, drink plenty of water and wear sunscreen and a hat. In wind, keep light material like insulation and plastic down low in the bin. In frost and snow, take extra care with your footing.</li>
+<li><strong>Sort before you load:</strong> heavy from light, long from short, and anything that can't go in the bin set aside.</li>
+<li><strong>Know what can't go in:</strong> hot ashes, batteries, gas bottles, chemicals, paint and asbestos. See <a href="#skip-bin-guide">what can and can't go in a skip bin</a>, or ask us if you're not sure.</li>
+</ul>
+<h2 style="{H2}">2. Lift safely</h2>
+<p style="{P}">Most loading injuries are backs and shoulders, usually from lifting something too heavy or awkward, or twisting while you lift it over the side of the bin.</p>
+<ul style="margin: 12px 0 0 0; padding-left: 22px; font-size: 18px; line-height: 1.7">
+<li><strong>Test it first.</strong> Tip one corner of the item to feel the weight. If it's too heavy, too long or awkward, get help or break it down.</li>
+<li><strong>Get close and set your feet</strong> about shoulder-width apart, bend your knees, keep your back straight and lift with your legs.</li>
+<li><strong>Keep the load close</strong> to your body, between your knees and shoulders where you can.</li>
+<li><strong>Don't twist.</strong> Turn by moving your feet, not your back.</li>
+<li><strong>Lifting over the side of the bin is the hardest part.</strong> Don't lift heavy items above shoulder height. Use two people for anything heavy or awkward, like lounges, fridges, mattresses and full sheets of ply or plasterboard.</li>
+<li><strong>Use a wheelbarrow, trolley or sack truck</strong> to move things to the bin instead of carrying them.</li>
+<li><strong>Pace yourself.</strong> Take regular breaks, swap jobs around, and stop if anything hurts.</li>
+</ul>
+<h2 style="{H2}">3. Load the bin</h2>
+<ul style="margin: 12px 0 0 0; padding-left: 22px; font-size: 18px; line-height: 1.7">
+<li><strong>Heavy and flat items first,</strong> spread evenly across the floor of the bin.</li>
+<li><strong>Break it down:</strong> take furniture apart, flatten boxes and cut long timber to fit, then fill the gaps with smaller items.</li>
+<li><strong>Load level with the top of the bin.</strong> Nothing sticking out or piled above the sides, or we can't safely lift it and carry it on the road.</li>
+<li><strong>Heavy waste fills up by weight, not space.</strong> Concrete, bricks, tiles and soil get heavy very quickly. Only fill to the fill mark we give you, and don't top up a heavy bin with more heavy waste.</li>
+<li><strong>Watch for sharps:</strong> nails, screws, broken glass and sheet metal edges. Hammer over nails sticking out of timber, or load it nail-side down.</li>
+<li><strong>Don't climb into the bin or stand on its sides,</strong> and don't build ramps from loose planks.</li>
+<li><strong>Don't throw things in</strong> from a height, a balcony or a ladder, and stay clear of the bin while someone else is loading it.</li>
+<li><strong>Cover it if rain is coming.</strong> Wet waste is heavier, and a tarp keeps light material from blowing out.</li>
+</ul>
+<h2 style="{H2}">4. On pickup day</h2>
+<ul style="margin: 12px 0 0 0; padding-left: 22px; font-size: 18px; line-height: 1.7">
+<li>Leave clear access for the truck: move cars, trailers and anything parked near the bin.</li>
+<li>Keep everyone, especially kids and pets, well clear while the truck is lifting the bin.</li>
+<li>If something went in that you're unsure about, tell the driver or give us a call before pickup.</li>
+</ul>
+<h2 style="{H2}">Not sure, or not up to it?</h2>
+<p style="{P}">If you have a sore back, an injury or a health condition that makes lifting risky, don't push through it. Get someone else to do the lifting, or let our crew <a href="#labour-hire">load it for you</a>. Not sure about an item? Text us a photo or call <a href="tel:0408632007" style="font-weight: 700">0408 632 007</a>.</p>
+<p style="margin: 24px 0 0 0; font-size: 15px; color: #555">This is general safety information to help you load your bin, not professional advice for your situation.</p>
+<div style="display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px"><a href="tel:0408632007" style="background: #4F7230; color: #fff; text-decoration: none; font-weight: 700; padding: 14px 22px; border-radius: 8px">Call 0408 632 007</a><a href="#contact" style="background: #fff; color: #52372A; text-decoration: none; font-weight: 700; padding: 12px 20px; border-radius: 8px; border: 2px solid #52372A">Get a quote</a></div>
+</section>'''
+PAGES.append('safe-loading')
+
 META = {
+ 'safe-loading': ('Loading Your Skip Bin Safely | Safety Checklist & Manual Handling | Snowy Skips',
+   'A simple safety checklist for loading your own skip bin: the right gear, safe lifting and manual handling, loading level, heavy waste and what can\'t go in. From Snowy Skips, Snowy Monaro.'),
  'home': (None, None),
  'skip-bins': ('Skip Bin Hire Snowy Monaro | 1.5 to 12 m³ Bins | Snowy Skips',
    'Skip bin hire across the Snowy Monaro, from 1.5 m³ to 12 m³, plus a 20 m³+ semi tipper. Fill it yourself or we load it for you. Delivered within 24 hours\' notice from Berridale.'),
@@ -471,7 +527,7 @@ for pid in PAGES:
 towns = sorted(glob.glob(OUT + 'skip-bin-hire-*/index.html'))
 for fn in towns:
     s = open(fn).read()
-    s = s.replace('Snowy Skips Skip Bin Guide</a>', 'Snowy Skips Skip Bin Guide</a><a href="/faq/" style="display: block; padding: 8px 16px; color: #1f1f1f; text-decoration: none">Skip bin FAQs</a><a href="/skip-bin-permits/" style="display: block; padding: 8px 16px; color: #1f1f1f; text-decoration: none">Council permits for skip bins</a><a href="/too-good-to-tip/" style="display: block; padding: 8px 16px; color: #1f1f1f; text-decoration: none">Too Good to Tip Giveaways</a>', 1)
+    s = s.replace('Snowy Skips Skip Bin Guide</a>', 'Snowy Skips Skip Bin Guide</a><a href="/faq/" style="display: block; padding: 8px 16px; color: #1f1f1f; text-decoration: none">Skip bin FAQs</a><a href="/skip-bin-permits/" style="display: block; padding: 8px 16px; color: #1f1f1f; text-decoration: none">Council permits for skip bins</a><a href="/too-good-to-tip/" style="display: block; padding: 8px 16px; color: #1f1f1f; text-decoration: none">Too Good to Tip Giveaways</a><a href="/safe-loading/" style="display: block; padding: 8px 16px; color: #1f1f1f; text-decoration: none">Loading your bin safely</a>', 1)
     s = s.replace(_LH.replace('href="#', 'href="/#'), _labour_menu('/'), 1)
     s = re.sub(r'href="/#([^"]*)"', lambda m: f'href="{target(m.group(1) or "home")}"', s)
     open(fn, 'w').write(s)
