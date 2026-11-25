@@ -80,8 +80,8 @@ img{{max-width:100%}}
  header nav details.nav-guides > div{{position:fixed !important;left:12px !important;right:12px !important;top:var(--dd-top,170px) !important;min-width:0 !important;max-height:70vh;overflow-y:auto;z-index:60 !important}}
  section{{padding-left:16px !important;padding-right:16px !important}}
  .weed-grid{{gap:12px !important}}
- .weed-grid figure{{display:grid;grid-template-columns:110px 1fr;align-items:start}}
- .weed-grid figure img{{aspect-ratio:1 / 1 !important;height:100%;min-height:110px}}
+ .weed-grid figure{{display:grid;grid-template-columns:108px 1fr;align-items:start}}
+ .weed-grid figure img{{aspect-ratio:auto !important;width:96px !important;height:96px !important;margin:12px 0 12px 12px;border-radius:8px}}
  .weed-grid figcaption{{padding:10px 12px !important}}
  .weed-grid figcaption strong{{font-size:16px !important}}
  .weed-grid figcaption > span:first-of-type{{font-size:15px !important;margin-top:4px !important}}
