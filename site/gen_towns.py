@@ -9,13 +9,13 @@ header = idx[idx.index('<header'):idx.index('</header>') + 9]
 footer = idx[idx.index('<footer'):idx.index('</footer>') + 9]
 fix = lambda h: re.sub(r'href="#', 'href="/#', h).replace('src="img/', 'src="/img/').replace('href="img/', 'href="/img/')
 header, footer = fix(header), fix(footer)
-IMG = {'alpine': '57286e8b8b.jpg', 'cooma': 'f9142da17d.jpg', 'z1': '65a67a3e77.jpg', 'z2': 'f9142da17d.jpg', 'z3': 'b41b59f532.jpg', 'quote': 'f9142da17d.jpg'}
+IMG = {'alpine': '57286e8b8b.jpg', 'cooma': 'f9142da17d.jpg', 'z1': 'ab8d45f698.jpg', 'z2': 'f9142da17d.jpg', 'z3': 'b41b59f532.jpg', 'quote': 'f9142da17d.jpg'}
 avail = set(os.listdir(OUT + 'img'))
 H = "font-family: 'Sora', sans-serif; font-weight: 800; color: #52372A"
 pages = []
 for town, zk in ALL:
     z = ZONES[zk]; s = slug(town); st = STATE.get(town, 'NSW')
-    img = IMG[zk] if IMG[zk] in avail else '65a67a3e77.jpg'
+    img = IMG[zk] if IMG[zk] in avail else 'ab8d45f698.jpg'
     title = f'Skip Bin Hire {town} | Rubbish Removal {town} | Snowy Skips'
     if z['prices']:
         desc = f'Skip bin hire in {town}, {st} from {z["prices"][0]} inc GST (2 m³, up to 7 days, plus landfill). Rubbish removal, bin loading, equipment and labour hire. Local, based in Berridale.'
