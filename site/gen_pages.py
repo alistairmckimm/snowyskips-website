@@ -401,6 +401,7 @@ mains['safe-loading'] = f'''<section style="background: #F5F2EC">
 <h2 style="{H2}">1. Before you start</h2>
 <ul style="margin: 12px 0 0 0; padding-left: 22px; font-size: 18px; line-height: 1.7">
 <li><strong>Wear the right gear:</strong> sturdy closed-in shoes or boots, gloves, long sleeves and long pants. Add safety glasses when you're breaking things up, and a P2 dust mask for dusty jobs like plaster, insulation or old carpet.</li>
+<li><strong>Check the edges of the bin.</strong> Our bins are steel and we quality check every bin before it goes out, but things can get bumped in transit or on site. Before you start, run your eye over the top edges and sides where you&#39;ll be loading, and look for any sharp edges, burrs or damage. If you find anything, don&#39;t load over that spot, and give us a call.</li>
 <li><strong>Keep kids and pets away</strong> from the bin and the work area. Never let children play in or around a skip bin.</li>
 <li><strong>Clear a path</strong> from your pile to the bin: no hoses, loose boards or trip hazards, and watch for wet, icy or uneven ground.</li>
 <li><strong>Check the weather.</strong> On hot days start early, take breaks, drink plenty of water and wear sunscreen and a hat. In wind, keep light material like insulation and plastic down low in the bin. In frost and snow, take extra care with your footing.</li>
