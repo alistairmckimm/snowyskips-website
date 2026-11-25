@@ -79,6 +79,13 @@ img{{max-width:100%}}
  header nav{{order:3;width:100%;overflow-x:auto;flex-wrap:nowrap !important;white-space:nowrap}}
  header nav details.nav-guides > div{{position:fixed !important;left:12px !important;right:12px !important;top:var(--dd-top,170px) !important;min-width:0 !important;max-height:70vh;overflow-y:auto;z-index:60 !important}}
  section{{padding-left:16px !important;padding-right:16px !important}}
+ table.lf-table thead{{display:none}}
+ table.lf-table caption{{display:block;width:100%;font-size:22px !important;line-height:1.25}}
+ table.lf-table,table.lf-table tbody{{display:block;width:100%}}
+ table.lf-table tr{{display:grid;grid-template-columns:112px 1fr;column-gap:14px;align-items:start;padding:14px 12px}}
+ table.lf-table th[scope=row]{{grid-row:1 / span 3;padding:0 !important;min-width:0 !important;font-size:15px}}
+ table.lf-table td{{padding:2px 0 !important;text-align:left !important}}
+ table.lf-table td::before{{content:attr(data-label) ': ';font-weight:600;color:#555555;font-family:inherit;font-size:15px}}
 }}
 </style>
 </head>
