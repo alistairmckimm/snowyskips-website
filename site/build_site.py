@@ -134,6 +134,15 @@ if LIVE:
     doc = doc.replace('</head>', '<script type="application/ld+json">'+_j.dumps(_ld)+'</script>\n</head>',1)
     _fl='<div style="max-width: 1240px; margin: 0 auto; padding: 0 24px 24px 24px; font-size: 14px; line-height: 1.8; color: #cfc4b8"><strong style="color: #e8e2d9">Skip bin hire &amp; rubbish removal:</strong> ' + ' · '.join(f'<a href="/skip-bin-hire-{_slug(t)}/" style="color: #cfc4b8">{t}</a>' for t,_ in _ALL) + '</div>\n</footer>'
     _i=doc.rindex('</footer>'); doc=doc[:_i]+_fl+doc[_i+len('</footer>'):]
+    # Dropdown menus: close when clicking outside, picking a link, opening another menu, or pressing Esc.
+    _navjs = ('<script>(function(){var M=document.querySelectorAll("details.nav-guides");'
+      'function shut(x){for(var i=0;i<M.length;i++){if(M[i]!==x)M[i].removeAttribute("open");}}'
+      'for(var i=0;i<M.length;i++){M[i].addEventListener("toggle",function(){if(this.open)shut(this);});}'
+      'document.addEventListener("click",function(e){var t=e.target;for(var i=0;i<M.length;i++){var d=M[i];'
+      'if(d.open&&(!d.contains(t)||(t.closest&&t.closest("a"))))d.removeAttribute("open");}});'
+      'document.addEventListener("keydown",function(e){if(e.key==="Escape")shut(null);});})();</script>\n</header>')
+    assert doc.count('</header>')==1
+    doc = doc.replace('</header>', _navjs, 1)
     # Christmas hours banner hides itself from Mon 4 Jan 2027 (Sydney time), even if nobody rebuilds the site.
     if 'id="christmas-hours"' in doc:
         _ci=doc.index('id="christmas-hours"'); _ce=doc.index('</section>',_ci)+len('</section>')
