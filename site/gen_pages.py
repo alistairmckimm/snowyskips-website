@@ -173,7 +173,8 @@ mains['insurance-accident-clean-ups'] = f'''<section style="background: #F5F2EC"
 <p style="{P}">Bins, machines and labour all come from us, so there's one booking, one invoice and one set of records.</p>
 <h2 style="{H2}">Records for your insurer or loss adjuster</h2>
 <ul style="margin: 14px 0 0 0; padding-left: 22px; font-size: 18px; line-height: 1.7">
-<li>Photos before, during and after the clean-up</li>
+<li>Geotagged, date- and time-stamped photos before, during and after the clean-up, plus video where it helps</li>
+<li>Live video calls from site with you, your loss adjuster or insurer while the job is under way, so they can see the damage and the work without travelling</li>
 <li>Weighbridge dockets for every load, with tonnes by waste type</li>
 <li>A clear, itemised invoice for bins, labour, machinery and landfill</li>
 <li>A written quote or scope for the assessor before we start, where the claim needs one</li>
