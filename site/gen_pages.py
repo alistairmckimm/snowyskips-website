@@ -498,8 +498,9 @@ _HDR_NEW = _HDR_OLD + f'<a href="{_SMS}" title="Text photos and your location to
 _BTN = f'<a href="{_SMS}" title="Text photos and your location to 0408 632 007" style="background: #fff; color: #52372A; text-decoration: none; font-weight: 700; padding: 12px 20px; border-radius: 8px; border: 2px solid #52372A">Text photos for a quote</a>'
 for fn in glob.glob(OUT + '**/index.html', recursive=True):
     s = open(fn).read(); s0 = s
-    if 'sms:0408632007' not in s:
+    if '>Text us photos</a>' not in s:
         s = s.replace(_HDR_OLD, _HDR_NEW, 1)
+    if 'Text photos for a quote</a>' not in s:
         s = re.sub(r'(>(?:Get a quote|Request a quote)</a>(?:<a href="tel:[^"]*"[^>]*>[^<]*</a>)?)(\s*</div>)', lambda m: m.group(1) + _BTN + m.group(2), s)
     if s != s0: open(fn, 'w').write(s)
 print('text-photo buttons added')

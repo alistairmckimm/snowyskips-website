@@ -154,7 +154,7 @@ if LIVE:
     doc = doc.replace('<div class="preview-bar">Preview — not live yet. Prices and bookings are for testing only.</div>\n','')
     doc = doc.replace('<meta name="robots" content="noindex">\n','')
     doc = doc.replace("b.addEventListener('click',function(){ b.textContent='Thanks — this is a preview, so nothing was sent yet.'; b.disabled=true; });", LIVE_JS)
-    doc = re.sub(r'<label([^>]*)>Photos of what\'s going \(helps us quote\)<input[^>]*></label>', r'<p\1>Photos help us quote: when your email opens, attach a few clear photos of what is going before you press send.</p>', doc)
+    doc = re.sub(r'<label([^>]*)>Photos of what\'s going \(helps us quote\)<input[^>]*></label>', r'<div\1><span style="display: block">Photos of the job (helps us quote)</span><span style="display: block; font-weight: 400; color: #1f1f1f; margin-top: 4px">Text a few clear photos and your location straight to us, or attach them to the email that opens when you press Send.</span><a href="sms:0408632007?&amp;body=Hi%20Snowy%20Skips%2C%20here%20are%20some%20photos%20for%20a%20quote.%20Location%3A%20" style="display: inline-block; margin-top: 10px; background: #fff; color: #52372A; text-decoration: none; font-weight: 700; padding: 10px 18px; border-radius: 8px; border: 2px solid #52372A">Text us photos: 0408 632 007</a></div>', doc)
     open(OUT + 'CNAME', 'w').write('snowyskips.com.au\n')
 
 open(OUT + 'index.html', 'w').write(doc)
