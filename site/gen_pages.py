@@ -23,13 +23,14 @@ def _labour_menu(pre):
             f'<a href="{pre}#labour-hire" style="display: block; padding: 8px 16px; color: #52372A; font-weight: 700; text-decoration: none">Labour hire &amp; clean-outs</a>'
             f'<a href="{pre}#insurance-accident-clean-ups" style="{a}">Insurance &amp; accident clean-ups</a>'
             f'<a href="{pre}#farm-commercial-clean-ups" style="{a}">Farm &amp; commercial clean-ups</a>'
+            f'<a href="{pre}#concrete-removal" style="{a}">Concrete removal &amp; disposal</a>'
             f'<a href="{pre}#deceased-estate-clean-outs" style="{a}">Deceased estate &amp; pre-sale clean-outs</a>'
             f'<a href="{pre}#single-item-pickup" style="{a}">Single item pickups</a></div></details>')
 _LH = '<a href="#labour-hire" style="color: #1f1f1f; text-decoration: none; padding: 10px 0">Labour Hire</a>'
 assert header.count(_LH) == 1
 header = header.replace(_LH, _labour_menu(''), 1)
 _FL = '<a href="#labour-hire" style="color: #e8e2d9">Labour Hire</a>'
-if _FL in footer: footer = footer.replace(_FL, _FL + '<br><a href="#insurance-accident-clean-ups" style="color: #e8e2d9">Insurance &amp; accident clean-ups</a><br><a href="#farm-commercial-clean-ups" style="color: #e8e2d9">Farm &amp; commercial clean-ups</a><br><a href="#deceased-estate-clean-outs" style="color: #e8e2d9">Deceased estate clean-outs</a>', 1)
+if _FL in footer: footer = footer.replace(_FL, _FL + '<br><a href="#insurance-accident-clean-ups" style="color: #e8e2d9">Insurance &amp; accident clean-ups</a><br><a href="#farm-commercial-clean-ups" style="color: #e8e2d9">Farm &amp; commercial clean-ups</a><br><a href="#concrete-removal" style="color: #e8e2d9">Concrete removal</a><br><a href="#deceased-estate-clean-outs" style="color: #e8e2d9">Deceased estate clean-outs</a>', 1)
 footer = footer.replace('<a href="#landfill-costs" style="color: #e8e2d9">Landfill Costs</a>',
     '<a href="#landfill-costs" style="color: #e8e2d9">Landfill Costs</a><br><a href="#faq" style="color: #e8e2d9">FAQs</a>', 1)
 
@@ -209,6 +210,7 @@ mains['farm-commercial-clean-ups'] = f'''<section style="background: #F5F2EC">
 <li>Large numbers of car and truck batteries</li>
 <li>General rubbish, timber, tyres and green waste from around the property</li>
 <li>Commercial sites: warehouse and shop clean-outs, end-of-lease strip-outs and yard clean-ups</li>
+<li>Old slabs, footings and concrete: see <a href="#concrete-removal">concrete removal &amp; disposal</a></li>
 </ul>
 <h2 style="{H2}">Scrap steel and batteries have value</h2>
 <p style="{P}">Heavy scrap steel and batteries go to authorised scrap metal recyclers in the cities, not landfill. Because the scrap is worth something, on <strong>large jobs</strong> the bins and pickup <strong>may be free or reduced</strong>, depending on how much there is and where the property is. Give us a call and we'll take a look. (This is for big clean-ups only, not small loads of steel.)</p>
@@ -250,6 +252,37 @@ mains['deceased-estate-clean-outs'] = f'''<section style="background: #F5F2EC">
 <div style="display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px"><a href="tel:0408632007" style="background: #4F7230; color: #fff; text-decoration: none; font-weight: 700; padding: 14px 22px; border-radius: 8px">Call 0408 632 007</a><a href="#contact" style="background: #fff; color: #52372A; text-decoration: none; font-weight: 700; padding: 12px 20px; border-radius: 8px; border: 2px solid #52372A">Get a quote</a></div>
 </section>'''
 PAGES.append('deceased-estate-clean-outs')
+
+# ---------- concrete-removal ----------
+mains['concrete-removal'] = f'''<section style="background: #F5F2EC">
+<div style="max-width: 860px; margin: 0 auto; padding: 56px 24px">
+<div style="font-weight: 700; letter-spacing: 2px; font-size: 14px; color: #4F7230">CONCRETE REMOVAL &amp; DISPOSAL</div>
+<h1 style="{HS}; font-size: 42px; line-height: 1.1; margin: 10px 0 0 0">Concrete removal and disposal: we cut it, break it, load it and cart it away.</h1>
+<p style="margin: 16px 0 0 0; font-size: 20px">Old driveways, paths, slabs, footings and brick rubble. Concrete removal is one of our specialties, for builders, commercial sites, councils and homeowners right across the Snowy Monaro.</p>
+<div style="display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px"><a href="tel:0408632007" style="background: #4F7230; color: #fff; text-decoration: none; font-weight: 700; padding: 14px 22px; border-radius: 8px">Call 0408 632 007</a><a href="#contact" style="background: #fff; color: #52372A; text-decoration: none; font-weight: 700; padding: 12px 20px; border-radius: 8px; border: 2px solid #52372A">Get a quote</a></div>
+</div>
+</section>
+<section style="max-width: 860px; margin: 0 auto; padding: 8px 24px 56px 24px">
+<div style="display: flex; flex-wrap: wrap; gap: 16px; margin-top: 28px"><figure style="flex: 1 1 240px; min-width: 0; margin: 0"><img src="/img/concrete-saw.jpg" alt="Concrete saw cutting along a path next to a brick wall" style="width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 10px; display: block"><figcaption style="font-size: 15px; color: #555555; margin-top: 6px">Saw-cutting a clean edge</figcaption></figure><figure style="flex: 1 1 240px; min-width: 0; margin: 0"><img src="/img/concrete-rubble-bin.jpg" alt="Broken concrete loaded in a Snowy Skips bin" style="width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 10px; display: block"><figcaption style="font-size: 15px; color: #555555; margin-top: 6px">Broken concrete, kept separate</figcaption></figure><figure style="flex: 1 1 240px; min-width: 0; margin: 0"><img src="/img/bricks-bin.jpg" alt="Old bricks loaded level in a galvanised skip bin" style="width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 10px; display: block"><figcaption style="font-size: 15px; color: #555555; margin-top: 6px">Bricks loaded level for the road</figcaption></figure></div>
+<h2 style="{H2}">What we remove</h2>
+<ul style="margin: 14px 0 0 0; padding-left: 22px; font-size: 18px; line-height: 1.7">
+<li>Driveways, footpaths and paved areas</li>
+<li>Concrete slabs, including old shed and garage slabs</li>
+<li>Footings, piers, kerbs and old retaining walls</li>
+<li>Brick rubble, pavers and blocks</li>
+<li>Concrete and brick waste from building and renovation jobs</li>
+</ul>
+<h2 style="{H2}">How we do it</h2>
+<p style="{P}">We saw-cut a clean, straight edge so the concrete that's staying isn't damaged, then break it out with jackhammers and breakers, or with our machines on bigger jobs. Our crew loads it straight into our trucks or bins and carts it away. Small job or large commercial site, you get one crew with the saws, breakers, machines and trucks.</p>
+<h2 style="{H2}">Disposal done right, and cheaper</h2>
+<p style="{P}">We keep concrete and bricks separate from general rubbish, because clean concrete and bricks are charged at a much cheaper landfill rate than mixed building waste. Every load is weighed on the landfill weighbridge and you get the dockets. See <a href="#landfill-costs">landfill fees</a> for real loads we've weighed.</p>
+<h2 style="{H2}">Doing it yourself? Hire a bin, but watch the weight</h2>
+<p style="{P}">Concrete, bricks and rubble are extremely heavy. A bin can be over the legal weight long before it looks full, so ask us for a smaller bin and a fill mark inside it showing how high you can load. Keep concrete and bricks out of your general rubbish bin to save on the landfill fee.</p>
+<h2 style="{H2}">Pricing</h2>
+<p style="{P}">Concrete removal is priced on the job: how much there is, how thick it is, whether it's reinforced, and how easy it is to get to. Send us a few photos and rough measurements and we'll give you a price.</p>
+<div style="display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px"><a href="tel:0408632007" style="background: #4F7230; color: #fff; text-decoration: none; font-weight: 700; padding: 14px 22px; border-radius: 8px">Call 0408 632 007</a><a href="#contact" style="background: #fff; color: #52372A; text-decoration: none; font-weight: 700; padding: 12px 20px; border-radius: 8px; border: 2px solid #52372A">Get a quote</a></div>
+</section>'''
+PAGES.append('concrete-removal')
 
 # ---------- Single item pickup ----------
 mains['single-item-pickup'] = f'''<section style="background: #F5F2EC">
@@ -363,6 +396,8 @@ META = {
    'What can and can\'t go in a skip bin, how to load it, how to avoid extra charges, and our hire conditions. The Snowy Skips Skip Bin Guide.'),
  'too-good-to-tip': ('Too Good to Tip Giveaways | Free Reused Items | Snowy Skips',
    'Good-condition furniture, tools and materials we\'ve saved from landfill, free for Snowy Monaro locals who need them. See what\'s available and how to collect.'),
+ 'concrete-removal': ('Concrete Removal & Disposal | Driveways, Slabs & Footings | Snowy Monaro | Snowy Skips',
+   'Concrete removal and disposal across the Snowy Monaro: driveways, paths, slabs, footings and brick rubble. Saw-cut, broken out, loaded and carted away, with weighbridge dockets.'),
  'farm-commercial-clean-ups': ('Farm & Commercial Clean-Ups | Scrap Steel, Machinery & Batteries | Snowy Skips',
    'Large farm and commercial clean-ups across the Snowy Monaro: old machinery, sheds, scrap steel and car batteries. Bins, machines and crew, with every load tracked.'),
  'deceased-estate-clean-outs': ('Deceased Estate & Pre-Sale Clean-Outs | Snowy Monaro | Snowy Skips',
