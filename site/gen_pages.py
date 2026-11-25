@@ -19,15 +19,17 @@ header = header.replace('Snowy Skips Skip Bin Guide</a>',
 def _labour_menu(pre):
     a = 'display: block; padding: 8px 16px; color: #1f1f1f; text-decoration: none'
     return ('<details class="nav-guides" style="position: relative; padding: 10px 0"><summary style="cursor: pointer; list-style: none; color: #1f1f1f">Labour Hire ▾</summary>'
-            '<div style="position: absolute; top: 100%; left: -12px; z-index: 30; background: #ffffff; border: 1px solid #e4e0d8; border-radius: 8px; box-shadow: 0 8px 24px rgba(0,0,0,0.12); padding: 8px 0; min-width: 260px; font-size: 16px; white-space: normal">'
+            '<div style="position: absolute; top: 100%; left: -12px; z-index: 30; background: #ffffff; border: 1px solid #e4e0d8; border-radius: 8px; box-shadow: 0 8px 24px rgba(0,0,0,0.12); padding: 8px 0; min-width: 320px; font-size: 16px; white-space: normal">'
             f'<a href="{pre}#labour-hire" style="display: block; padding: 8px 16px; color: #52372A; font-weight: 700; text-decoration: none">Labour hire &amp; clean-outs</a>'
             f'<a href="{pre}#insurance-accident-clean-ups" style="{a}">Insurance &amp; accident clean-ups</a>'
+            f'<a href="{pre}#farm-commercial-clean-ups" style="{a}">Farm &amp; commercial clean-ups</a>'
+            f'<a href="{pre}#deceased-estate-clean-outs" style="{a}">Deceased estate &amp; pre-sale clean-outs</a>'
             f'<a href="{pre}#single-item-pickup" style="{a}">Single item pickups</a></div></details>')
 _LH = '<a href="#labour-hire" style="color: #1f1f1f; text-decoration: none; padding: 10px 0">Labour Hire</a>'
 assert header.count(_LH) == 1
 header = header.replace(_LH, _labour_menu(''), 1)
 _FL = '<a href="#labour-hire" style="color: #e8e2d9">Labour Hire</a>'
-if _FL in footer: footer = footer.replace(_FL, _FL + '<br><a href="#insurance-accident-clean-ups" style="color: #e8e2d9">Insurance &amp; accident clean-ups</a>', 1)
+if _FL in footer: footer = footer.replace(_FL, _FL + '<br><a href="#insurance-accident-clean-ups" style="color: #e8e2d9">Insurance &amp; accident clean-ups</a><br><a href="#farm-commercial-clean-ups" style="color: #e8e2d9">Farm &amp; commercial clean-ups</a><br><a href="#deceased-estate-clean-outs" style="color: #e8e2d9">Deceased estate clean-outs</a>', 1)
 footer = footer.replace('<a href="#landfill-costs" style="color: #e8e2d9">Landfill Costs</a>',
     '<a href="#landfill-costs" style="color: #e8e2d9">Landfill Costs</a><br><a href="#faq" style="color: #e8e2d9">FAQs</a>', 1)
 
@@ -190,6 +192,65 @@ mains['insurance-accident-clean-ups'] = f'''<section style="background: #F5F2EC"
 </section>'''
 PAGES.append('insurance-accident-clean-ups')
 
+# ---------- farm-commercial-clean-ups ----------
+mains['farm-commercial-clean-ups'] = f'''<section style="background: #F5F2EC">
+<div style="max-width: 860px; margin: 0 auto; padding: 56px 24px">
+<div style="font-weight: 700; letter-spacing: 2px; font-size: 14px; color: #4F7230">FARM &amp; COMMERCIAL CLEAN-UPS</div>
+<h1 style="{HS}; font-size: 42px; line-height: 1.1; margin: 10px 0 0 0">Big clean-up on the farm or at the business? We bring the bins, machines and crew.</h1>
+<p style="margin: 16px 0 0 0; font-size: 20px">Old machinery, sheds, wire, scrap steel, car batteries and years of built-up rubbish. We clear large farm and commercial sites right across the Snowy Monaro, Upper Murray and far East Gippsland.</p>
+<div style="display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px"><a href="tel:0408632007" style="background: #4F7230; color: #fff; text-decoration: none; font-weight: 700; padding: 14px 22px; border-radius: 8px">Call 0408 632 007</a><a href="#contact" style="background: #fff; color: #52372A; text-decoration: none; font-weight: 700; padding: 12px 20px; border-radius: 8px; border: 2px solid #52372A">Get a quote</a></div>
+</div>
+</section>
+<section style="max-width: 860px; margin: 0 auto; padding: 8px 24px 56px 24px">
+<h2 style="{H2}">What we clear</h2>
+<ul style="margin: 14px 0 0 0; padding-left: 22px; font-size: 18px; line-height: 1.7">
+<li>Old machinery, vehicles, implements and heavy scrap steel</li>
+<li>Fencing wire, posts, old yards and collapsed or unwanted sheds</li>
+<li>Large numbers of car and truck batteries</li>
+<li>General rubbish, timber, tyres and green waste from around the property</li>
+<li>Commercial sites: warehouse and shop clean-outs, end-of-lease strip-outs and yard clean-ups</li>
+</ul>
+<h2 style="{H2}">Scrap steel and batteries have value</h2>
+<p style="{P}">Heavy scrap steel and batteries go to authorised scrap metal recyclers in the cities, not landfill. Because the scrap is worth something, on <strong>large jobs</strong> the bins and pickup <strong>may be free or reduced</strong>, depending on how much there is and where the property is. Give us a call and we'll take a look. (This is for big clean-ups only, not small loads of steel.)</p>
+<p style="{P}">Batteries are packed to meet the legal requirements for transport and taken off site separately. They never go in a skip bin.</p>
+<h2 style="{H2}">Machines, crew and bins on site</h2>
+<p style="{P}">We bring the excavator or loader, the trucks and bins, and a crew to load it all. While the machine is on site, it can also do other jobs around the property: clearing, tidying up yards, digging or moving material. Ask us when you book.</p>
+<p style="{P}">For ongoing work, a <a href="#pricing">permanent bin</a> on the farm is much cheaper than one-off bins: no set pickups, just give us a few days' notice and we fit it into our regular runs.</p>
+<p style="{P}">Machinery or sheds to move rather than scrap? We also run drop deck floats. See <a href="#transport">machinery &amp; large item transport</a>.</p>
+<h2 style="{H2}">Every load tracked</h2>
+<p style="{P}">You get weighbridge dockets and a record of where everything went: scrap to the recycler, rubbish to landfill. Handy for your records, your accountant or a business's environmental reporting. See <a href="#tracking">waste tracking</a>.</p>
+<div style="display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px"><a href="tel:0408632007" style="background: #4F7230; color: #fff; text-decoration: none; font-weight: 700; padding: 14px 22px; border-radius: 8px">Call 0408 632 007</a><a href="#contact" style="background: #fff; color: #52372A; text-decoration: none; font-weight: 700; padding: 12px 20px; border-radius: 8px; border: 2px solid #52372A">Get a quote</a></div>
+</section>'''
+PAGES.append('farm-commercial-clean-ups')
+
+# ---------- deceased-estate-clean-outs ----------
+mains['deceased-estate-clean-outs'] = f'''<section style="background: #F5F2EC">
+<div style="max-width: 860px; margin: 0 auto; padding: 56px 24px">
+<div style="font-weight: 700; letter-spacing: 2px; font-size: 14px; color: #4F7230">DECEASED ESTATE &amp; PRE-SALE CLEAN-OUTS</div>
+<h1 style="{HS}; font-size: 42px; line-height: 1.1; margin: 10px 0 0 0">Clearing a loved one's home, or getting a property ready for sale? We can take care of it.</h1>
+<p style="margin: 16px 0 0 0; font-size: 20px">We've cleared many homes for families, executors and solicitors over the years. We handle the whole clean-out with care, keep anything personal aside for the family, and leave the property ready to list.</p>
+<div style="display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px"><a href="tel:0408632007" style="background: #4F7230; color: #fff; text-decoration: none; font-weight: 700; padding: 14px 22px; border-radius: 8px">Call 0408 632 007</a><a href="#contact" style="background: #fff; color: #52372A; text-decoration: none; font-weight: 700; padding: 12px 20px; border-radius: 8px; border: 2px solid #52372A">Get a quote</a></div>
+</div>
+</section>
+<section style="max-width: 860px; margin: 0 auto; padding: 8px 24px 56px 24px">
+<h2 style="{H2}">How we help</h2>
+<ul style="margin: 14px 0 0 0; padding-left: 22px; font-size: 18px; line-height: 1.7">
+<li>Full house, shed and yard clean-outs, done by our own crew</li>
+<li>Personal papers, photos and anything that looks valuable set aside for the family, as you direct</li>
+<li>Good furniture and household items passed on to locals through our <a href="#too-good-to-tip">Too Good to Tip Giveaways</a>, or to charity, instead of landfill</li>
+<li>Cleaning once the house is empty, plus a garden and yard tidy-up</li>
+<li>Bins, trucks and machinery for big properties and farms</li>
+</ul>
+<p style="{P}">Family interstate? We can work with the executor, solicitor or real estate agent, send photo updates as we go, and hand the keys back when we're done.</p>
+<h2 style="{H2}">Selling the property? Pay from the settlement</h2>
+<p style="{P}">If the property is being sold, you don't need to find the money up front. We can do the clean-out now and be <strong>paid from the sale at settlement</strong>: our invoice goes to the conveyancer or solicitor with the settlement figures. This needs a short written agreement signed by the executor or owner before we start. Just ask when you call.</p>
+<p style="{P}">This works for any home being cleared for sale, not just deceased estates.</p>
+<h2 style="{H2}">For solicitors, executors and real estate agents</h2>
+<p style="{P}">One local contractor for the whole job: the clean-out, the rubbish, the cleaning and the yard. Every load is weighed and you get the dockets and an itemised invoice for the estate's records. Call Al on <a href="tel:0408632007">0408 632 007</a> or email <a href="mailto:bookings@snowyskips.com.au">bookings@snowyskips.com.au</a>.</p>
+<div style="display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px"><a href="tel:0408632007" style="background: #4F7230; color: #fff; text-decoration: none; font-weight: 700; padding: 14px 22px; border-radius: 8px">Call 0408 632 007</a><a href="#contact" style="background: #fff; color: #52372A; text-decoration: none; font-weight: 700; padding: 12px 20px; border-radius: 8px; border: 2px solid #52372A">Get a quote</a></div>
+</section>'''
+PAGES.append('deceased-estate-clean-outs')
+
 # ---------- Single item pickup ----------
 mains['single-item-pickup'] = f'''<section style="background: #F5F2EC">
 <div style="max-width: 860px; margin: 0 auto; padding: 56px 24px">
@@ -211,6 +272,9 @@ mains['single-item-pickup'] = f'''<section style="background: #F5F2EC">
 <li>Any other bulky item that's too big for the car or the wheelie bin</li>
 </ul>
 <p style="{P}">One item, two items or a small load: just tell us what's going.</p>
+<h2 style="{H2}">Thinking of hiring a trailer?</h2>
+<p style="{P}">Before you pay for trailer hire or trailer rental, give us a call. If the fridge, couch or mattress won't fit in your trailer, or you'd rather not hire one, load it and drive it to the tip yourself, we'll come and get it. It's quick and painless: we pick it up from your place and take it away, or move it from one place to another for you.</p>
+<p style="{P}">Bigger or heavier things to move, like machinery, site sheds or containers? We also run drop deck floats with ramps. See <a href="#transport">machinery &amp; large item transport</a>.</p>
 <h2 style="{H2}">What it costs</h2>
 <p style="{P}">If our trucks are already in your area, a single item pickup is <strong>generally $49 plus the landfill fee</strong> for the item. Fridges, mattresses, tyres and similar items have their own council landfill fees, which we pass on at cost.</p>
 <p style="{P}">If you're further out, the price goes up on a sliding scale depending on the distance and where our trucks are running that week. Call us and we'll give you a price before we come.</p>
@@ -299,10 +363,14 @@ META = {
    'What can and can\'t go in a skip bin, how to load it, how to avoid extra charges, and our hire conditions. The Snowy Skips Skip Bin Guide.'),
  'too-good-to-tip': ('Too Good to Tip Giveaways | Free Reused Items | Snowy Skips',
    'Good-condition furniture, tools and materials we\'ve saved from landfill, free for Snowy Monaro locals who need them. See what\'s available and how to collect.'),
+ 'farm-commercial-clean-ups': ('Farm & Commercial Clean-Ups | Scrap Steel, Machinery & Batteries | Snowy Skips',
+   'Large farm and commercial clean-ups across the Snowy Monaro: old machinery, sheds, scrap steel and car batteries. Bins, machines and crew, with every load tracked.'),
+ 'deceased-estate-clean-outs': ('Deceased Estate & Pre-Sale Clean-Outs | Snowy Monaro | Snowy Skips',
+   'Respectful deceased estate and pre-sale house clean-outs across the Snowy Monaro. Personal items kept aside, cleaning and yard tidy, and the option to pay from the sale at settlement.'),
  'insurance-accident-clean-ups': ('Insurance & Accident Clean-Ups | Storm, Fire & Flood | Snowy Monaro | Snowy Skips',
    'Storm, fire, flood or accident damage in the Snowy Monaro? Snowy Skips clears the site with bins, machinery and labour, with photos and weighbridge dockets for your insurer.'),
  'single-item-pickup': ('Single Item Pickup & Bulky Rubbish Removal | Snowy Monaro | Snowy Skips',
-   'Fridge, mattress, couch or desk to go? Snowy Skips picks up single bulky items across the Snowy Monaro, generally $49 plus landfill when our trucks are in your area.'),
+   'Fridge, mattress, couch or desk to go? No need for trailer hire: Snowy Skips picks up single bulky items across the Snowy Monaro, generally $49 plus landfill when our trucks are in your area.'),
  'skip-bin-permits': ('Do I Need a Council Permit for a Skip Bin? | Snowy Monaro | Snowy Skips',
    'Do you need a council permit for a skip bin in Cooma, Jindabyne or Berridale? On your property, generally no. On the road or footpath, yes. Here is how it works, and how we can apply for you.'),
  'faq': ('Skip Bin FAQs | Sizes, Prices, Permits & Landfill | Snowy Skips',
