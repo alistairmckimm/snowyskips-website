@@ -15,6 +15,19 @@ PAGES = list(mains)  # home, skip-bins, pricing, ...
 # FAQ link in the Customer Guide menu
 header = header.replace('Snowy Skips Skip Bin Guide</a>',
     'Snowy Skips Skip Bin Guide</a><a href="#faq" style="display: block; padding: 8px 16px; color: #1f1f1f; text-decoration: none">Skip bin FAQs</a><a href="#skip-bin-permits" style="display: block; padding: 8px 16px; color: #1f1f1f; text-decoration: none">Council permits for skip bins</a><a href="#too-good-to-tip" style="display: block; padding: 8px 16px; color: #1f1f1f; text-decoration: none">Too Good to Tip Giveaways</a>', 1)
+# Labour Hire dropdown (labour hire, insurance & accident clean-ups, single item pickups)
+def _labour_menu(pre):
+    a = 'display: block; padding: 8px 16px; color: #1f1f1f; text-decoration: none'
+    return ('<details class="nav-guides" style="position: relative; padding: 10px 0"><summary style="cursor: pointer; list-style: none; color: #1f1f1f">Labour Hire ▾</summary>'
+            '<div style="position: absolute; top: 100%; left: -12px; z-index: 30; background: #ffffff; border: 1px solid #e4e0d8; border-radius: 8px; box-shadow: 0 8px 24px rgba(0,0,0,0.12); padding: 8px 0; min-width: 260px; font-size: 16px; white-space: normal">'
+            f'<a href="{pre}#labour-hire" style="display: block; padding: 8px 16px; color: #52372A; font-weight: 700; text-decoration: none">Labour hire &amp; clean-outs</a>'
+            f'<a href="{pre}#insurance-accident-clean-ups" style="{a}">Insurance &amp; accident clean-ups</a>'
+            f'<a href="{pre}#single-item-pickup" style="{a}">Single item pickups</a></div></details>')
+_LH = '<a href="#labour-hire" style="color: #1f1f1f; text-decoration: none; padding: 10px 0">Labour Hire</a>'
+assert header.count(_LH) == 1
+header = header.replace(_LH, _labour_menu(''), 1)
+_FL = '<a href="#labour-hire" style="color: #e8e2d9">Labour Hire</a>'
+if _FL in footer: footer = footer.replace(_FL, _FL + '<br><a href="#insurance-accident-clean-ups" style="color: #e8e2d9">Insurance &amp; accident clean-ups</a>', 1)
 footer = footer.replace('<a href="#landfill-costs" style="color: #e8e2d9">Landfill Costs</a>',
     '<a href="#landfill-costs" style="color: #e8e2d9">Landfill Costs</a><br><a href="#faq" style="color: #e8e2d9">FAQs</a>', 1)
 
@@ -132,6 +145,51 @@ mains['skip-bin-permits'] = f'''<section style="background: #F5F2EC">
 </section>'''
 PAGES.append('skip-bin-permits')
 
+# ---------- Insurance & accident clean-ups ----------
+mains['insurance-accident-clean-ups'] = f'''<section style="background: #F5F2EC">
+<div style="max-width: 860px; margin: 0 auto; padding: 56px 24px">
+<div style="font-weight: 700; letter-spacing: 2px; font-size: 14px; color: #4F7230">INSURANCE &amp; ACCIDENT CLEAN-UPS</div>
+<h1 style="{HS}; font-size: 42px; line-height: 1.1; margin: 10px 0 0 0">Storm, fire, flood or accident damage? We clear the site so your builder can start.</h1>
+<p style="margin: 16px 0 0 0; font-size: 20px">One local contractor for the whole clean-up: skip bins, machinery and a crew to load it, across the Snowy Monaro. We work with homeowners, builders, loss adjusters and insurers, and every load is tracked with weighbridge dockets.</p>
+<div style="display: flex; flex-wrap: wrap; gap: 12px; margin-top: 24px"><a href="tel:0408632007" style="background: #4F7230; color: #fff; text-decoration: none; font-weight: 700; padding: 14px 22px; border-radius: 8px">Call 0408 632 007</a><a href="#contact" style="background: #fff; color: #52372A; text-decoration: none; font-weight: 700; padding: 12px 20px; border-radius: 8px; border: 2px solid #52372A">Get a quote</a></div>
+<p style="margin: 14px 0 0 0; font-size: 16px; color: #52372A"><strong>24-hour emergency call-outs</strong> for storm damage, fallen trees and make-safe work.</p>
+</div>
+</section>
+<section style="max-width: 860px; margin: 0 auto; padding: 8px 24px 56px 24px">
+<h2 style="{H2}">What we do</h2>
+<ul style="margin: 14px 0 0 0; padding-left: 22px; font-size: 18px; line-height: 1.7">
+<li><strong>Full clean-outs</strong> of damaged contents: furniture, carpets, whitegoods, flood-soaked and smoke-damaged items.</li>
+<li><strong>Strip-outs</strong>: wet plasterboard, carpet and underlay, kitchens, flooring and fittings that need to come out before repairs.</li>
+<li><strong>Small demolition</strong>: damaged sheds, carports, garages, decks and small single-storey structures (see the note on demolition below).</li>
+<li><strong>Make-safe and site clean-up</strong>: storm debris, fallen trees (we have a 12-inch tree chipper), broken fencing, and clearing up after a vehicle has gone through a fence, carport or shed.</li>
+<li><strong>Site set-up for the rebuild</strong>: temporary fencing, site toilets, site sheds and containers, and bins for the builder.</li>
+</ul>
+<p style="{P}">Bins, machines and labour all come from us, so there's one booking, one invoice and one set of records.</p>
+<h2 style="{H2}">Records for your insurer or loss adjuster</h2>
+<ul style="margin: 14px 0 0 0; padding-left: 22px; font-size: 18px; line-height: 1.7">
+<li>Photos before, during and after the clean-up</li>
+<li>Weighbridge dockets for every load, with tonnes by waste type</li>
+<li>A clear, itemised invoice for bins, labour, machinery and landfill</li>
+<li>A written quote or scope for the assessor before we start, where the claim needs one</li>
+</ul>
+<p style="{P}">Every job goes through our <a href="#tracking">waste tracking</a>, so you can show exactly what was removed and where it went.</p>
+<h2 style="{H2}">Asbestos comes out first</h2>
+<p style="{P}">Many homes built before 1990 contain asbestos, and fire or storm damage can break it up. If asbestos may be present, it must be checked and removed by a licensed asbestos removalist before anyone else works on the site. Once the area has been cleared, we take over the rest of the clean-up. We don't remove asbestos and it can't go in our skip bins.</p>
+<h2 style="{H2}">A note on demolition</h2>
+<p style="{P}">We take down small damaged structures that don't need a demolition licence in NSW: generally structures under 6 metres high, with no machinery working on a raised or suspended floor. Anything bigger goes to a licensed demolition contractor, and we can supply the bins, machinery and cartage for them.</p>
+<h2 style="{H2}">How it works</h2>
+<ol style="margin: 14px 0 0 0; padding-left: 22px; font-size: 18px; line-height: 1.7">
+<li>Call us on <a href="tel:0408632007">0408 632 007</a>. For urgent storm or make-safe work, call any time, day or night.</li>
+<li>We look at the site (or your photos) and give you, your builder or the assessor a quote and scope.</li>
+<li>We make the site safe, clear it, and keep everything separated so recyclable and cheaper-to-tip waste costs less.</li>
+<li>You get the photos, dockets and invoice for the claim, and the site is ready for the builder.</li>
+</ol>
+<h2 style="{H2}">For loss adjusters and builders</h2>
+<p style="{P}">Need a local contractor in the Snowy Monaro, Upper Murray or far East Gippsland? We know the area, run our own trucks and machinery, and can usually start sooner than a contractor travelling from the city. Call Al on <a href="tel:0408632007">0408 632 007</a> or email <a href="mailto:bookings@snowyskips.com.au">bookings@snowyskips.com.au</a>.</p>
+<div style="display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px"><a href="tel:0408632007" style="background: #4F7230; color: #fff; text-decoration: none; font-weight: 700; padding: 14px 22px; border-radius: 8px">Call 0408 632 007</a><a href="#contact" style="background: #fff; color: #52372A; text-decoration: none; font-weight: 700; padding: 12px 20px; border-radius: 8px; border: 2px solid #52372A">Get a quote</a><a href="#labour-hire" style="color: #4F7230; font-weight: 700; padding: 14px 6px">Labour hire &amp; clean-outs</a></div>
+</section>'''
+PAGES.append('insurance-accident-clean-ups')
+
 # ---------- Single item pickup ----------
 mains['single-item-pickup'] = f'''<section style="background: #F5F2EC">
 <div style="max-width: 860px; margin: 0 auto; padding: 56px 24px">
@@ -241,6 +299,8 @@ META = {
    'What can and can\'t go in a skip bin, how to load it, how to avoid extra charges, and our hire conditions. The Snowy Skips Skip Bin Guide.'),
  'too-good-to-tip': ('Too Good to Tip Giveaways | Free Reused Items | Snowy Skips',
    'Good-condition furniture, tools and materials we\'ve saved from landfill, free for Snowy Monaro locals who need them. See what\'s available and how to collect.'),
+ 'insurance-accident-clean-ups': ('Insurance & Accident Clean-Ups | Storm, Fire & Flood | Snowy Monaro | Snowy Skips',
+   'Storm, fire, flood or accident damage in the Snowy Monaro? Snowy Skips clears the site with bins, machinery and labour, with photos and weighbridge dockets for your insurer.'),
  'single-item-pickup': ('Single Item Pickup & Bulky Rubbish Removal | Snowy Monaro | Snowy Skips',
    'Fridge, mattress, couch or desk to go? Snowy Skips picks up single bulky items across the Snowy Monaro, generally $49 plus landfill when our trucks are in your area.'),
  'skip-bin-permits': ('Do I Need a Council Permit for a Skip Bin? | Snowy Monaro | Snowy Skips',
@@ -299,6 +359,7 @@ towns = sorted(glob.glob(OUT + 'skip-bin-hire-*/index.html'))
 for fn in towns:
     s = open(fn).read()
     s = s.replace('Snowy Skips Skip Bin Guide</a>', 'Snowy Skips Skip Bin Guide</a><a href="/faq/" style="display: block; padding: 8px 16px; color: #1f1f1f; text-decoration: none">Skip bin FAQs</a><a href="/skip-bin-permits/" style="display: block; padding: 8px 16px; color: #1f1f1f; text-decoration: none">Council permits for skip bins</a><a href="/too-good-to-tip/" style="display: block; padding: 8px 16px; color: #1f1f1f; text-decoration: none">Too Good to Tip Giveaways</a>', 1)
+    s = s.replace(_LH.replace('href="#', 'href="/#'), _labour_menu('/'), 1)
     s = re.sub(r'href="/#([^"]*)"', lambda m: f'href="{target(m.group(1) or "home")}"', s)
     open(fn, 'w').write(s)
     urls.append(SITE + '/' + os.path.relpath(os.path.dirname(fn), OUT) + '/')
