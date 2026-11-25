@@ -142,6 +142,7 @@ mains['single-item-pickup'] = f'''<section style="background: #F5F2EC">
 </div>
 </section>
 <section style="max-width: 860px; margin: 0 auto; padding: 8px 24px 56px 24px">
+<figure style="margin: 8px 0 32px 0"><img src="/img/single-item-pickup.jpg" alt="Fridge, couch, drawers and a storage tub loaded on the Snowy Skips truck in a driveway" style="width: 100%; max-height: 520px; object-fit: cover; border-radius: 10px; display: block"><figcaption style="font-size: 15px; color: #555555; margin-top: 8px">A few household items picked up from a driveway: fridge, couch and drawers.</figcaption></figure>
 <h2 style="{H2}">What we pick up</h2>
 <ul style="margin: 14px 0 0 0; padding-left: 22px; font-size: 18px; line-height: 1.7">
 <li>Fridges and freezers</li>
@@ -168,6 +169,7 @@ PAGES.append('single-item-pickup')
 
 # ---------- Free to a good home ----------
 import json as _json, os as _os, shutil as _sh, datetime as _dt
+for _f in _os.listdir('/home/claude/site/extra_img'): _sh.copy('/home/claude/site/extra_img/'+_f, OUT+'img/'+_f)
 _items = _json.load(open('/home/claude/site/free_items.json'))
 _os.makedirs(OUT + 'img/free', exist_ok=True)
 def _fmt(d): return _dt.date.fromisoformat(d).strftime('%-d %b %Y')
