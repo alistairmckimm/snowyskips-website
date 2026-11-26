@@ -488,6 +488,18 @@ mains['illegal-dumping'] = f'''<section style="background: #F5F2EC">
 <li><strong>Watch out for cash-only, no-paperwork deals</strong> and operators who turn up in unmarked trailers.</li>
 </ul>
 
+<h2 id="asbestos" style="{H2}">Asbestos: check your contractor before it leaves your property</h2>
+<p style="{P}">Asbestos is where cutting corners does the most harm, and as the owner of the waste you can still be liable if it ends up in the wrong place. Advertising asbestos removal isn&#39;t the same as being set up to remove it, cart it and dispose of it legally. Before you book anyone, check:</p>
+<ul style="margin: 12px 0 0 0; padding-left: 22px; font-size: 18px; line-height: 1.7">
+<li><strong>Above all, make sure they have the right insurance to haul asbestos.</strong> Most standard public liability policies exclude asbestos, so an ordinary certificate isn&#39;t enough. Ask for a certificate of currency that shows asbestos liability cover, and check it covers transporting the waste, not just removing it. If someone else is hauling it, ask them for theirs too.</li>
+<li><strong>They hold the right removal licence.</strong> Removing more than 10 m&sup2; of bonded (non-friable) asbestos needs a licensed removalist, and any amount of friable asbestos needs a Class A licence. You can check a licence through <a href="https://www.safework.nsw.gov.au/hazards-a-z/asbestos" target="_blank" rel="noopener">SafeWork NSW</a>.</li>
+
+<li><strong>Whoever transports it is registered to track it.</strong> In NSW, asbestos loads of 100 kg or more, or 10 m&sup2; or more of sheeting, must be tracked with the EPA, and the transporter must be registered to do it. Ask for the consignment number for your load.</li>
+<li><strong>It&#39;s wrapped, labelled and covered.</strong> Asbestos waste should be double-wrapped or double-bagged in heavy (200 micron) plastic, labelled as asbestos, and carried in a covered, leak-proof bin or vehicle. Never an open skip or trailer.</li>
+<li><strong>It goes to a landfill licensed to take it,</strong> and you get the disposal docket. Not every tip or transfer station can accept asbestos.</li>
+</ul>
+<p style="{P}">Our skip bins can&#39;t take asbestos. If you find it, or think you have, during a clean-up, stop work and call a licensed asbestos removalist first.</p>
+
 <h2 style="{H2}">How we do it</h2>
 <p style="{P}">We want to help lift the standard of the industry, starting with full transparency on every load.</p>
 <ul style="margin: 12px 0 0 0; padding-left: 22px; font-size: 18px; line-height: 1.7">
@@ -503,7 +515,7 @@ PAGES.append('illegal-dumping')
 
 META = {
  'illegal-dumping': ('Report Illegal Dumping | Dob in a Dumper | Snowy Monaro | Snowy Skips',
-   'How to report illegal dumping in the Snowy Monaro: NSW EPA 131 555, RIDonline, council 1300 345 345 and EPA Victoria 1300 372 842. Plus how to pick an honest waste operator and how we track every load.'),
+   'How to report illegal dumping in the Snowy Monaro: NSW EPA 131 555, RIDonline, council 1300 345 345 and EPA Victoria 1300 372 842. Plus how to pick an honest waste operator, what to check before anyone carts your asbestos, and how we track every load.'),
  'safe-loading': ('Loading Your Skip Bin Safely | Safety Checklist & Manual Handling | Snowy Skips',
    'A simple safety checklist for loading your own skip bin: the right gear, safe lifting and manual handling, loading level, heavy waste and what can\'t go in. From Snowy Skips, Snowy Monaro.'),
  'home': (None, None),
