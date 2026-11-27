@@ -255,7 +255,7 @@ mains['deceased-estate-clean-outs'] = f'''<section style="background: #F5F2EC">
 </ul>
 <p style="{P}">Family interstate? We can work with the executor, solicitor or real estate agent, send photo updates as we go, and hand the keys back when we're done.</p>
 <h2 style="{H2}">Selling the property? Pay from the settlement</h2>
-<p style="{P}">If the property is being sold, you don't need to find the money up front. We can do the clean-out now and be <strong>paid from the sale at settlement</strong>: our invoice goes to the conveyancer or solicitor with the settlement figures. This needs a short written agreement signed by the executor or owner before we start. Just ask when you call.</p>
+<p style="{P}">If the property is being sold, you don't need to find the money up front. We can do the clean-out now and be <strong>paid from the sale at settlement</strong>: our invoice goes to the conveyancer or solicitor with the settlement figures. <strong>It's the same price as paying up front, with no extra charge for waiting.</strong> This needs a short written agreement signed by the executor or owner before we start. Just ask when you call.</p>
 <p style="{P}">This works for any home being cleared for sale, not just deceased estates.</p>
 <h2 style="{H2}">For solicitors, executors and real estate agents</h2>
 <p style="{P}">One local contractor for the whole job: the clean-out, the rubbish, the cleaning and the yard. Every load is weighed and you get the dockets and an itemised invoice for the estate's records. Call Al on <a href="tel:0408632007">0408 632 007</a> or email <a href="mailto:bookings@snowyskips.com.au">bookings@snowyskips.com.au</a>.</p>
