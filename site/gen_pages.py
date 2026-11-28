@@ -619,6 +619,9 @@ print(len(PAGES), 'section pages,', len(towns), 'town pages,', len(urls), 'urls;
 
 # old address for the giveaway page
 _os.makedirs(OUT + 'free-items', exist_ok=True)
+# short address for the hire terms (printed on the Skip Bin Guide, used in texts)
+_os.makedirs(OUT + 'terms', exist_ok=True)
+open(OUT + 'terms/index.html','w').write('<!doctype html><meta charset="utf-8"><title>Hire terms and conditions | Snowy Skips</title><meta name="robots" content="noindex"><link rel="canonical" href="https://snowyskips.com.au/skip-bin-guide/"><meta http-equiv="refresh" content="0; url=/skip-bin-guide/#hire-conditions"><script>location.replace("/skip-bin-guide/#hire-conditions")</script><a href="/skip-bin-guide/#hire-conditions">Snowy Skips hire terms and conditions</a>')
 open(OUT + 'free-items/index.html','w').write('<!doctype html><meta charset="utf-8"><title>Too Good to Tip Giveaways</title><link rel="canonical" href="https://snowyskips.com.au/too-good-to-tip/"><meta http-equiv="refresh" content="0; url=/too-good-to-tip/"><a href="/too-good-to-tip/">Too Good to Tip Giveaways</a>')
 
 # ---------- "Text us photos" buttons (Al 25 Nov: quotes by text with photos + location) ----------
